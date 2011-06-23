@@ -5,7 +5,6 @@
 #paper {
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
   font-size: 16px;
-  line-height: 24px;
   color: #252519;
   padding: 50px;
   margin: 50px;
@@ -16,6 +15,9 @@
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   border: 1px solid #777;
+}
+#paper p {
+  text-align: justify;
 }
 #paper a {
   color: #261a3b;

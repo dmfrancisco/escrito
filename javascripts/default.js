@@ -9,6 +9,8 @@ $(document).ready(function()
   // Tooltips (http://onehackoranother.com/projects/jquery/tipsy)
   $('#link-github').tipsy();
 
+  var converter = new Showdown.converter();
+
   function render(val) {
     switch(renderMode)
     {
@@ -21,7 +23,7 @@ $(document).ready(function()
         $('#paper').html(textile(val));
         break;
       case "markdown":
-        $('#paper').html(val);
+        $('#paper').html(converter.makeHtml(val));
         break;
       case "latex":
         $('#paper').html(val);
