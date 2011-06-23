@@ -31,12 +31,13 @@ $(document).ready(function()
       $('#preview').show();
       render(editor.getCode());
       $('#preview').css('top', '35px');
+      $('#preview').focus();
     },
     function() {
       $('#preview').hide();
       $('.editor').show();
       $('.editor').focus();
-    },
+    }, editor.win.document,
     {
       switch_path: 'images/switch.png'
     }

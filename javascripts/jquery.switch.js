@@ -1,11 +1,4 @@
-/************************************************
-*  jQuery iphoneSwitch plugin                   *
-*                                               *
-*  Author: Daniel LaBare                        *
-*  Date:   2/4/2008                             *
-************************************************/
-
-jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_off_callback, options) {
+jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_off_callback, editor, options) {
 
 	var state = start_state == 'on' ? start_state : 'off';
 
@@ -24,9 +17,33 @@ jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_of
 		jQuery.extend(settings, options);
 	}
 
+	// click handling
+	var switchPanel = function() {
+		if(state == 'on') {
+			jQuery(document).find('.iphone_switch').animate({backgroundPosition: -40}, 300, function() {
+				jQuery(document).attr('src', settings.switch_off_container_path);
+				switched_off_callback();
+			});
+			state = 'off';
+		}
+		else {
+			jQuery(document).find('.iphone_switch').animate({backgroundPosition: 0}, 300, function() {
+				switched_on_callback();
+			});
+			jQuery(document).find('.iphone_switch').attr('src', settings.switch_on_container_path);
+			state = 'on';
+		}
+	}
+
+	// click handling
+	jQuery(this).click(switchPanel);
+	jQuery(document).bind('keydown', 'Shift+tab',switchPanel);
+	jQuery(editor).bind('keydown', 'Shift+tab', switchPanel);
+	jQuery(document).bind('keydown', 'tab',switchPanel);
+	jQuery(editor).bind('keydown', 'tab', switchPanel);
+
 	// create the switch
 	return this.each(function() {
-
 		var container;
 		var image;
 
@@ -46,25 +63,5 @@ jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_of
 		jQuery(this).mouseout(function(){
 			jQuery(this).css("background", settings.mouse_out);
 		});
-
-		// click handling
-		jQuery(this).bind('click', function() {
-			if(state == 'on') {
-				jQuery(this).find('.iphone_switch').animate({backgroundPosition: -40}, 300, function() {
-					jQuery(this).attr('src', settings.switch_off_container_path);
-					switched_off_callback();
-				});
-				state = 'off';
-			}
-			else {
-				jQuery(this).find('.iphone_switch').animate({backgroundPosition: 0}, 300, function() {
-					switched_on_callback();
-				});
-				jQuery(this).find('.iphone_switch').attr('src', settings.switch_on_container_path);
-				state = 'on';
-			}
-		});
-
 	});
-
 };
