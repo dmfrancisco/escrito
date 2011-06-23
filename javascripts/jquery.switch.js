@@ -39,8 +39,8 @@ jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_of
 	jQuery(this).click(switchPanel);
 	jQuery(document).bind('keydown', 'Shift+tab',switchPanel);
 	jQuery(editor).bind('keydown', 'Shift+tab', switchPanel);
-	jQuery(document).bind('keydown', 'tab',switchPanel);
-	jQuery(editor).bind('keydown', 'tab', switchPanel);
+	// jQuery(document).bind('keydown', 'tab',switchPanel);
+	// jQuery(editor).bind('keydown', 'tab', switchPanel);
 
 	// create the switch
 	return this.each(function() {

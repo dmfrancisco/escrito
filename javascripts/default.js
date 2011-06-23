@@ -17,7 +17,7 @@ $(document).ready(function()
       case "plain":
         val = val.replace(/\r\n|\r|\n/g,"<br />"); // Newlines
         val = val.replace(/  /g, "&nbsp;&nbsp;"); // Whitespaces
-        $('#paper').html(val);
+        $('#paper').html("<p></p>" + val);
         break;
       case "textile":
         $('#paper').html(textile(val));
