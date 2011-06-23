@@ -1,5 +1,6 @@
 function render(val) {
   // $('#preview').html(Haml.render(val));
+  $('#paper').html(textile(val));
 }
 
 $(document).ready(function()
