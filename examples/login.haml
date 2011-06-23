@@ -1,0 +1,23 @@
+#box
+  .block
+    %h2 Login Box
+    .content.login
+      .flash
+        .message.error
+          %p Invalid email or password
+      %form.form.login{action: "#"}
+        .group.wat-cf
+          .left
+            %label.label.right Login
+          .right
+            %input.text_field{type: "text", value: "hello@dmfranc.com"}/
+        .group.wat-cf
+          .left
+            %label.label.right Password
+          .right
+            %input.text_field{type: "password", value: "segredo"}/
+        .group.navform.wat-cf
+          .right
+            %button.button{type: "submit"}
+              %img{alt: "Save", src: "icons/key.png"}/
+              Login

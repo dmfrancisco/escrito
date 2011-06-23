@@ -1,0 +1,30 @@
+#container
+  #box
+    .block
+      .control
+        %a.button{href: '#'}
+          %img{src: 'icons/qrcode.png'}/
+          This button does nothing!
+      .content
+        %h3 Try activo here!
+        .inner
+           %p.big
+             This page was written in HAML! You can change the code by clicking on the button on the left corner of the toolbar.
+           %p.bigger
+             Activo is a theme written in SASS. Those haml templates you see here can be generated automagically using the Web-app-theme generators. Web-app-theme is a rails plugin that you can use to generate a complete web application layout. Activo is a theme for this plugin.
+           %p.big
+             But it is also something more! It offers you the styles you need to integrate with another cool gem that lots of people use - ! Formtastic makes it easier to create HTML forms in your Rails applications.
+           %p.big
+             Activo also has the styles for the Attrtastic gem. Attrtastic is similar in usage to formtastic and allows you to easily display AR record information (it helps in the creation of show and index pages).
+
+    %h2 About
+    .flash
+      .message.warning
+        %p This is an alpha version.
+    .flash
+      .message.error
+        %p And I have never tested the theme on Internet Explorer.
+    .flash
+      .message.notice{ style: 'padding-left:20px; line-height:17px' }
+        %p I made this in my free time, so I wasn't concerned about things with which you'll probably have to be, if you're thinking on using activo in your next project.
+        %p So please fork it on github and modify it to meet your needs!

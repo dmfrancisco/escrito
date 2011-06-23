@@ -1,0 +1,166 @@
+html, body {
+  overflow: hidden;
+}
+#toolbar {
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  padding: 5px;
+  padding-left: 15px;
+  height: 24px;
+  min-width: 705px;
+  background-color: rgba(255, 255, 255, 0.4);
+  background-image: url('../images/toolbar-bgd.png');
+  -webkit-box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(150, 150, 150),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(150, 150, 150),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(150, 150, 150),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+}
+#toolbar .logo {
+  background: url('../images/logo-alpha.png') no-repeat;
+  position: absolute;
+  margin-top: 4px;
+  width: 60px;
+  height: 15px;
+}
+#toolbar .code, #toolbar .preview {
+  position: absolute;
+  left: 95px;
+  top: 9px;
+  text-transform: uppercase;
+  color: #333;
+  font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255,255,255,.7);
+}
+#toolbar #switch {
+  position: absolute;
+  left: 141px;
+  width: 80px;
+  z-index: 1000;
+}
+#toolbar .preview {
+  left: 240px;
+}
+#toolbar .link-github {
+  position: absolute;
+  padding: 2px;
+  right: 216px;
+}
+#toolbar .link-preview {
+  position: absolute;
+  padding: 2px;
+  right: 123px;
+}
+#toolbar .link-project {
+  position: absolute;
+  padding: 2px;
+  right: 5px;
+}
+#toolbar #menu {
+  position: absolute;
+  padding-top: 1px;
+  right: 346px;
+}
+
+#code {
+  display: none:
+}
+
+#editor {
+  position:absolute;
+  top:35px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow: auto;
+  overflow-x: hidden;
+  border: none;
+}
+
+#preview {
+  position:absolute;
+  top:35px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow: auto;
+}
+
+.return-button {
+  -webkit-box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(130, 130, 130),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(130, 130, 130),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(130, 130, 130),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+  background-color: #d3d3d3;
+  background-image:
+    -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgb(225, 225, 225)),
+      to(rgb(180, 180, 180))
+    );
+  color: #333;
+  font: 11px/20px 'Lucida Grande', sans-serif;
+  padding: 4px 10px 5px 10px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.return-button:active {
+  -webkit-box-shadow:
+    inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(140, 140, 140),
+    0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow:
+    inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(140, 140, 140),
+    0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgb(140, 140, 140),
+    0 1px 1px rgba(0, 0, 0, 0.3);
+}
+mark {
+  background-color: #FFFFB3;
+  font-weight: bold;
+  padding: 1px;
+  text-shadow: none;
+}
+.big {
+  font-size: 13px;
+  line-height:20px;
+}
+.bigger {
+  font-size: 15px;
+  line-height:20px;
+}

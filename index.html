@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>ACTIVO / try it</title>
+
+  <link rel="shortcut icon" href="http://activo.dmfranc.com/favicon.png">
+
+  <link rel="stylesheet" media="screen" href="stylesheets/reset.css" />
+  <link rel="stylesheet" media="screen" href="stylesheets/jquery.tipsy.css" />
+  <link rel="stylesheet" media="screen" href="stylesheets/uniform.default.css" />
+  <link rel="stylesheet" media="screen" href="stylesheets/default.css"></script>
+  <link rel="stylesheet" media="screen" href="stylesheets/buttons.css"></script>
+  <link rel="stylesheet" media="screen" href="stylesheets/menu.css"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="javascripts/jquery.tipsy.js"></script>
+  <script src="javascripts/jquery.uniform.min.js"></script>
+  <script src="javascripts/codemirror/codemirror.min.js"></script>
+  <script src="javascripts/default.js"></script>
+  <script src="javascripts/jquery.switch.js"></script>
+  <script src="javascripts/menu.js"></script>
+  <script src="javascripts/parsers/haml.js"></script>
+</head>
+
+<body>
+
+  <div id="toolbar">
+    <div class="logo"></div>
+    <span class="code">Edit</span>
+    <div id="switch"></div>
+    <span class="preview">Preview</span>
+
+    <div id="menu" class="menu right">
+      <div>
+        <a href="#" class="opener">Examples</a>
+
+        <ul class="popup">
+          <li><a class="example" id="example-welcome" href="#">Welcome</a></li>
+          <li><a class="example" id="example-screenshot" href="#">Screenshot</a></li>
+          <li><a class="example" id="example-simple-block" href="#">Simple box</a></li>
+          <li><a class="example" id="example-login" href="#">Login box</a></li>
+          <li><a class="example" id="example-signup" href="#">Signup box</a></li>
+          <li><a class="example" id="example-big-big" href="#">Big page</a></li>
+        </ul>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <span class="link-github"><a href="https://github.com/dmfrancisco/activo/tree/activo-2" class="return-button" id="link-github" title="Check out the activo-2 branch!">Fork me on github</a></span>
+    <span class="link-preview"><a href="http://activo.dmfranc.com/preview/" class="return-button">Full preview</a></span>
+    <span class="link-project"><a href="http://activo.dmfranc.com/" class="return-button">Project's website</a></span>
+  </div>
+
+  <div id="editor">
+  <textarea id="code">
+  </textarea>
+  </div>
+
+  <div id="preview"></div>
+
+</body>

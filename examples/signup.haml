@@ -1,0 +1,38 @@
+#box
+  .block
+    %h2 Sign up
+    .secondary-inner-nav
+      %ul.wat-cf
+        %li.active
+          %a{href: "#"} Tabs
+        %li
+          %a{href: "#"} For
+        %li
+          %a{href: "#"} Different
+        %li
+          %a{href: "#"} Roles
+    .content
+      %form.form{action: "#"}
+        .group.wat-cf
+          .left
+            %label.label Login
+          .right
+            %input.text_field{type: "text"}/
+            %span.description Ex: activo
+        .group.wat-cf
+          .left
+            %label.label Email
+          .right
+            %input.text_field{type: "text"}/
+            %span.description Ex: you@domain.com
+        .group
+          %label.label Password
+          %input.text_field{type: "password"}/
+          %span.description Must contain the word 'yeah'
+        .group
+          %label.label Password confirmation
+          %input.text_field{type: "password"}/
+        .group.navform.wat-cf
+          %button.button{type: "submit"}
+            %img{alt: "Save", src: "icons/tick.png"}/
+            Signup
