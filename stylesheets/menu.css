@@ -1,11 +1,12 @@
 #menu {
-  width: 300px;
+  width: 150px;
   margin: 50px auto;
   padding: 60px;
   height: 200px;
   margin: 0;
   padding: 0;
   text-decoration: none;
+  font-family: 'Lucida Grande', sans-serif;
 }
 
 div.menu {

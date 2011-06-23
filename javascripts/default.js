@@ -1,15 +1,33 @@
-function render(val) {
-  // $('#preview').html(Haml.render(val));
-  $('#paper').html(textile(val));
-}
-
 $(document).ready(function()
 {
+  var renderMode = "textile";
+  $('#language-textile').append(" ✓");
+
   // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
   $("select, input:checkbox, input:radio, input:file").uniform();
 
   // Tooltips (http://onehackoranother.com/projects/jquery/tipsy)
   $('#link-github').tipsy();
+
+  function render(val) {
+    switch(renderMode)
+    {
+      case "plain":
+        val = val.replace(/\r\n|\r|\n/g,"<br />"); // Newlines
+        val = val.replace(/  /g, "&nbsp;&nbsp;"); // Whitespaces
+        $('#paper').html(val);
+        break;
+      case "textile":
+        $('#paper').html(textile(val));
+        break;
+      case "markdown":
+        $('#paper').html(val);
+        break;
+      case "latex":
+        $('#paper').html(val);
+        break;
+    }
+  }
 
   // Editor
   var editor = CodeMirror.fromTextArea('code', {
@@ -45,54 +63,28 @@ $(document).ready(function()
   );
 
   // Manage click events
-  $('.example').click(function() {
+  $('.language').click(function() {
+    $('.language').each(function() {
+      $(this).text($(this).text().replace(' ✓',''));
+    })
+    $(this).append(" ✓");
+
     switch(this.id)
     {
-      case "example-welcome":
-        $('#code').load('examples/welcome.haml', function() {
-          editor.setCode($('#code').val());
-          $('#preview').html( Haml.render(editor.getCode()) );
-        });
+      case "language-plain":
+        renderMode = "plain";
         break;
-
-      case "example-screenshot":
-        $('#code').load('examples/screenshot.haml', function() {
-          editor.setCode($('#code').val());
-          $('#preview').html( Haml.render(editor.getCode()) );
-        });
+      case "language-textile":
+        renderMode = "textile";
         break;
-
-      case "example-simple-block":
-        $('#code').load('examples/simple-block.haml', function() {
-          editor.setCode($('#code').val());
-          $('#preview').html( Haml.render(editor.getCode()) );
-        });
+      case "language-markdown":
+        renderMode = "markdown";
         break;
-
-      case "example-login":
-        $('#code').load('examples/login.haml', function() {
-          editor.setCode($('#code').val());
-          $('#preview').html( Haml.render(editor.getCode()) );
-        });
-        break;
-
-      case "example-signup":
-        $('#code').load('examples/signup.haml', function() {
-          editor.setCode($('#code').val());
-          $('#preview').html( Haml.render(editor.getCode()) );
-        });
-        break;
-
-      case "example-big-big":
-        $('#code').load('examples/big-big.haml', function() {
-          editor.setCode($('#code').val());
-          $('#preview').html( Haml.render(editor.getCode()) );
-        });
-        break;
-
-      default:
+      case "language-latex":
+        renderMode = "latex";
         break;
     }
+    render(editor.getCode());
   });
 
   render($('#code').val());
