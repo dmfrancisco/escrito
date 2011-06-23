@@ -144,9 +144,15 @@ ul.popup li a:hover, li.submenu:hover a.title {
 
 ul.popup li a {
   color: #fafafa;
+  text-decoration: none;
   display: block;
   padding: 8px 10px;
-  text-decoration: none;
+}
+
+ul.popup li span {
+  color: gray;
+  display: block;
+  padding: 8px 10px;
 }
 
 ul.popup li.separator {
