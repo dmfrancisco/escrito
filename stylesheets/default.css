@@ -14,19 +14,17 @@ html, body {
   background-image: url('../images/toolbar-bgd.png');
   -webkit-box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 1px 0 rgba(0, 0, 0, 0.2),
     0 0 0 1px rgb(150, 150, 150),
     0 1px 2px rgba(0, 0, 0, 0.25);
   -moz-box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 1px 0 rgba(0, 0, 0, 0.2),
     0 0 0 1px rgb(150, 150, 150),
     0 1px 2px rgba(0, 0, 0, 0.25);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 1px 0 rgba(0, 0, 0, 0.2),
     0 0 0 1px rgb(150, 150, 150),
     0 1px 2px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px dotted #222;
 }
 #toolbar .logo {
   background: url('../images/logo-alpha.png') no-repeat;
@@ -47,7 +45,7 @@ html, body {
 }
 #toolbar #switch {
   position: absolute;
-  left: 141px;
+  left: 147px;
   width: 80px;
   z-index: 1000;
 }

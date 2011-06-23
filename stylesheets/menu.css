@@ -94,6 +94,7 @@ ul.popup.open {
   -webkit-border-top-right-radius: 0;
   -moz-border-radius-topright: 0;
   border-top-right-radius: 0;
+  margin: 0;
 }
 
 .left ul.popup.open {

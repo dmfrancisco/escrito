@@ -14,6 +14,7 @@
   <link rel="stylesheet" media="screen" href="stylesheets/default.css"></script>
   <link rel="stylesheet" media="screen" href="stylesheets/buttons.css"></script>
   <link rel="stylesheet" media="screen" href="stylesheets/menu.css"></script>
+  <link rel="stylesheet" media="screen" href="stylesheets/preview.css"></script>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script src="javascripts/jquery.tipsy.js"></script>
@@ -23,14 +24,14 @@
   <script src="javascripts/default.js"></script>
   <script src="javascripts/jquery.switch.js"></script>
   <script src="javascripts/menu.js"></script>
-  <script src="javascripts/parsers/haml.js"></script>
+  <script src="javascripts/parsers/textile.js"></script>
 </head>
 
 <body>
 
   <div id="toolbar">
     <div class="logo"></div>
-    <span class="code">Edit</span>
+    <span class="code">Write</span>
     <div id="switch"></div>
     <span class="preview">Preview</span>
 
@@ -58,9 +59,64 @@
 
   <div id="editor">
   <textarea id="code">
+h1. Title h1
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+h2. Title h2
+h3. Title h3
+
+p. An "example":http://textile.com link.
+p. *Bold*, _Italics_, +Underline+, -Strike through-, %{color:red}Red text %, ~Subscript~.
+
+p.
+
+
+|_. Column 1 |_. Column 2 |
+| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.     | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. |
+
+
+
+# List
+## Item
+## Item
+## Item
+## Item
+# List
+## Item
+## Item
+### Sub-item
+### Sub-item
+# List
+
+
+
+* Item 1
+** Sub-item 1
+** Sub-item 2
+** Sub-item 3
+* Item 2
+** Sub-item 1
+** Sub-item 2
+
+!http://dl.dropbox.com/u/1745359/tumblr/post%235/lenna.jpg!
+
+
+@Some code snippet@
+
+
+p(. Indentation
+p((. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+p.
   </textarea>
   </div>
 
-  <div id="preview"></div>
+  <div id="preview">
+    <div id="desk">
+      <div id="paper"></div>
+    </div>
+  </div>
 
 </body>
