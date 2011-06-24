@@ -12,6 +12,7 @@ var strings = {
 $(document).ready(function()
 {
   var renderMode = "textile";
+  var scrollPos = 0;
   $('#language-textile').append(" ✓");
 
   // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
@@ -96,8 +97,11 @@ $(document).ready(function()
       render(editor.getCode());
       $('#preview').css('top', '0px');
       $('#preview').focus();
+      $('#preview').attr({ scrollTop: scrollPos });
     },
     function() {
+      scrollPos = $('#preview').attr('scrollTop');
+
       $('#preview').hide();
       $('.editor').show();
       $('.editor').focus();
