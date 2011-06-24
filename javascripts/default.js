@@ -9,10 +9,16 @@ var strings = {
   "export-text-markdown" : "Markdown file"
 }
 
+var renderMode = "textile"; // Current parser being used
+var scrollPos = 0; // Persist scroll position of the preview mode
+
+
+function save() {
+  alert("Saved");
+}
+
 $(document).ready(function()
 {
-  var renderMode = "textile";
-  var scrollPos = 0;
   $('#language-textile').append(" ✓");
 
   // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
@@ -52,6 +58,7 @@ $(document).ready(function()
     stylesheet: "stylesheets/modes/default.css",
     basefiles: ["javascripts/codemirror/codemirror_base.js"],
     textWrapping: true,
+    saveFunction: save,
     indentUnit: 4,
     parserConfig: {'strictErrors': true},
     iframeClass: "editor",
@@ -97,9 +104,12 @@ $(document).ready(function()
       render(editor.getCode());
       $('#preview').css('top', '0px');
       $('#preview').focus();
+
+      // Return to saved scroll position of the preview mode
       $('#preview').attr({ scrollTop: scrollPos });
     },
     function() {
+      // Save scroll position of the preview mode
       scrollPos = $('#preview').attr('scrollTop');
 
       $('#preview').hide();
