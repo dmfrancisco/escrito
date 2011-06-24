@@ -70,7 +70,8 @@ function writeOn() {
 
 /* Save written content */
 function save() {
-    alert("Saved");
+    var uriContent = "data:application/octet-stream," + encodeURIComponent(editor.getCode());
+    document.location.href = uriContent;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +127,22 @@ function initLanguageMenu() {
     });
 }
 
+/* Manage click events on the export menu */
+function initExportMenu() {
+    $('.export').click(function() {
+        switch (this.id)
+        {
+        case "export-text":
+            save();
+            break;
+        case "export-html":
+            break;
+        case "export-pdf":
+            break;
+        }
+    });
+}
+
 /* Handlers to show & hide toolbar */
 function initToolbar() {
     $('#toolbar-area').mouseover(function() {
@@ -166,6 +183,7 @@ function whileLoading() {
     });
 
     initLanguageMenu(); // Manage click events on the language menu
+    initExportMenu(); // Manage click events on the export menu
 }
 
 /* When codemirror is ready */
