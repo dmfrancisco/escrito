@@ -11,6 +11,18 @@ $(document).ready(function()
 
   var converter = new Showdown.converter();
 
+  // Editor
+  var editor = CodeMirror.fromTextArea('code', {
+    parserfile: ["javascripts/modes/markdown.js", "javascripts/modes/textile.js"],
+    stylesheet: "stylesheets/modes/default.css",
+    basefiles: ["javascripts/codemirror/codemirror_base.js"],
+    textWrapping: true,
+    indentUnit: 4,
+    parserConfig: {'strictErrors': true},
+    iframeClass: "editor",
+    height: '100%'
+  });
+
   function render(val) {
     switch(renderMode)
     {
@@ -23,6 +35,7 @@ $(document).ready(function()
         $('#paper').html(textile(val));
         break;
       case "markdown":
+        editor.setParser('MarkdownParser');
         $('#paper').html(converter.makeHtml(val));
         break;
       case "latex":
@@ -30,20 +43,6 @@ $(document).ready(function()
         break;
     }
   }
-
-  // Editor
-  var editor = CodeMirror.fromTextArea('code', {
-    // parserfile: ["haml-colors/parsepython.js"],
-    stylesheet: "javascripts/codemirror/haml-colors/pythoncolors.css",
-    basefiles: ["javascripts/codemirror/codemirror_base.js"],
-    // path: "javascripts/codemirror/",
-    // lineNumbers: true,
-    textWrapping: true,
-    indentUnit: 4,
-    parserConfig: {'pythonVersion': 2, 'strictErrors': true},
-    iframeClass: "editor",
-    height: '100%'
-  });
 
   // Switch
   $('#switch').iphoneSwitch("on",

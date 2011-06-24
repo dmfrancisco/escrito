@@ -1,0 +1,62 @@
+html {
+  cursor: text;
+}
+
+.editbox {
+  padding: 50px;
+  margin: 0;
+  font-family: 'Monaco','Lucida Console',monospace;
+  font-size: 13px;
+  line-height: 19px;
+  color: #fff;
+  background: #111;
+}
+
+.editbox p {
+  margin: 0;
+}
+
+.editbox span.paragraph,
+.editbox span.title,
+.editbox span.unordered-list-item,
+.editbox span.ordered-list-item,
+.editbox span.rule,
+.editbox span.link {
+  color: #aaa;
+}
+
+.editbox span.bold {
+  font-weight: bold;
+}
+
+.editbox span.underline {
+  text-decoration: underline;
+}
+
+.editbox span.strikethrough {
+  text-decoration: line-through;
+}
+
+.editbox span.italic {
+  font-style: italic;
+}
+
+.editbox span.subscript {
+  font-size:70%;
+  vertical-align: sub;
+  margin-left:-0.1em;
+}
+
+.editbox span.superscript {
+  font-size:70%;
+  vertical-align: super;
+  margin-left:-0.1em;
+}
+
+.editbox span.blockquote {
+  color: #aaa;
+  margin-left: 30px;
+}
+
+.editbox span.nochange {
+}
