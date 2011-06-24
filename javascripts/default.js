@@ -69,8 +69,14 @@ function writeOn() {
 }
 
 /* Save written content */
-function save() {
+function saveText() {
     var uriContent = "data:application/octet-stream," + encodeURIComponent(editor.getCode());
+    document.location.href = uriContent;
+}
+
+function saveHtml() {
+    var uriContent = "data:application/octet-stream," +
+        encodeURIComponent("<html>\n<body>\n"+ $('#paper').html() +"\n</body>\n</html>\n");
     document.location.href = uriContent;
 }
 
@@ -133,9 +139,10 @@ function initExportMenu() {
         switch (this.id)
         {
         case "export-text":
-            save();
+            saveText();
             break;
         case "export-html":
+            saveHtml();
             break;
         case "export-pdf":
             break;
@@ -204,7 +211,7 @@ $(document).ready(function()
         stylesheet: "stylesheets/modes/default.css",
         basefiles: ["javascripts/codemirror/codemirror_base.js"],
         textWrapping: true,
-        saveFunction: save,
+        saveFunction: saveText,
         indentUnit: 4,
         parserConfig: { 'strictErrors': true },
         iframeClass: "editor",
