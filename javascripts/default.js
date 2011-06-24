@@ -75,8 +75,17 @@ function saveText() {
 }
 
 function saveHtml() {
+    var attrs = [
+        "  <style type=\"text/css\">",
+        "    body { margin: 50px; font: 16px 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif; }",
+        "    p { text-align: justify; }",
+        "    a { color: #261a3b; }",
+        "    a:visited { color: #261a3b; }",
+        "    pre, tt, code { font: 12px Menlo, Monaco, Consolas, 'Lucida Console', monospace; }",
+        "  </style>"
+    ];
     var uriContent = "data:application/octet-stream," +
-        encodeURIComponent("<html>\n<body>\n"+ $('#paper').html() +"\n</body>\n</html>\n");
+        encodeURIComponent("<html>\n<head>\n"+ attrs.join("\n") +"\n<head>\n<body>\n"+ $('#paper').html() +"\n</body>\n</html>\n");
     document.location.href = uriContent;
 }
 
