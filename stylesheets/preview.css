@@ -30,3 +30,8 @@
   font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
   margin: 0; padding: 0;
 }
+#paper.hover {
+  -webkit-box-shadow: 0 0 20px rgba(255, 255, 0, 0.4);
+  -moz-box-shadow: 0 0 20px rgba(255, 255, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.4);
+}

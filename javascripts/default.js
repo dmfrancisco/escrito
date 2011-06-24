@@ -68,6 +68,33 @@ function writeOn() {
     $('.editor').focus();
 }
 
+/* Text file drag-and-drop */
+function dropFile() {
+    if (typeof window.FileReader === 'undefined') {
+        alert('fail');
+    }
+
+    $("#preview").bind('dragover', function() {
+        $("#paper").addClass('hover');
+        return false;
+    }).bind("dragend", function() {
+        $("#paper").removeClass('hover');
+        return false;
+    }).bind("drop", function (e) {
+        $("#paper").removeClass('hover');
+        e.stopPropagation();
+        e.preventDefault();
+
+        var file = e.originalEvent.dataTransfer.files[0], reader = new FileReader();
+        reader.onload = function (event) {
+          editor.setCode(event.target.result);
+          render(event.target.result);
+        };
+        reader.readAsText(file);
+        return false;
+    });
+}
+
 /* Save written content */
 function saveText() {
     var uriContent = "data:application/octet-stream," + encodeURIComponent(editor.getCode());
@@ -196,10 +223,12 @@ function whileLoading() {
         allMenus.each(function() {
             hideWindow($(this));
         });
+        $("#paper").removeClass('hover');
     });
 
     initLanguageMenu(); // Manage click events on the language menu
     initExportMenu(); // Manage click events on the export menu
+    dropFile(); // Allow drag-and-drop of text files
 }
 
 /* When codemirror is ready */
