@@ -34,14 +34,26 @@ $(document).ready(function()
   $('#import-button').bind('mouseleave', function (e) {
      $(this).tipsy("hide");
   });
+
+  // Hide all opened menus when clicking anywhere
   $(document).click( function(e) {
-     // Hide all opened menus
      var allMenus = $('.opener');
      allMenus.each(function() {
        hideWindow($(this));
      });
   });
 
+  // Show & hide toolbar
+  $('#toolbar-area').mouseover(function() {
+     $('#toolbar').slideDown('fast');
+  });
+  $('#toolbar').mouseleave(function() {
+     if (!$('#preview').is(":visible"))
+        setTimeout(function() { $('#toolbar').slideUp('fast'); }, 1500);
+  });
+  $('#preview').click(function() {
+     setTimeout(function() { $('#toolbar').slideUp('fast'); }, 500);
+  });
 
   var converter = new Showdown.converter();
 
@@ -94,7 +106,7 @@ $(document).ready(function()
       $('.editor').hide();
       $('#preview').show();
       render(editor.getCode());
-      $('#preview').css('top', '35px');
+      $('#preview').css('top', '0px');
       $('#preview').focus();
     },
     function() {

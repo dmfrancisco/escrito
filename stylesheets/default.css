@@ -1,15 +1,19 @@
 html, body {
   overflow: hidden;
 }
-#toolbar {
+#toolbar-area, #toolbar {
   position:absolute;
   top:0px;
   left:0px;
   right:0px;
+  min-width: 705px;
+  z-index: 1000;
+  height: 40px;
+}
+#toolbar {
   padding: 5px;
   padding-left: 15px;
   height: 24px;
-  min-width: 705px;
   background-color: rgba(255, 255, 255, 0.4);
   background-image: url('../images/toolbar-bgd.png');
   -webkit-box-shadow:
@@ -37,7 +41,7 @@ html, body {
 #toolbar .code, #toolbar .preview {
   position: absolute;
   left: 95px;
-  top: 9px;
+  padding-top: 4px;
   text-transform: uppercase;
   color: #333;
   font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
