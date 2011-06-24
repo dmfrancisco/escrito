@@ -6,7 +6,7 @@ html, body {
   top:0px;
   left:0px;
   right:0px;
-  min-width: 705px;
+  min-width: 555px;
   z-index: 1000;
   height: 40px;
 }
@@ -101,6 +101,15 @@ html, body {
   right: 0px;
   bottom:0px;
   overflow: auto;
+}
+
+#toolbar-tip {
+  position:absolute;
+  top: 52px;
+  right: 10px;
+  width: 37px;
+  height: 50px;
+  background-image: url('../images/toolbar-tip.png');
 }
 
 mark {
