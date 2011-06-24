@@ -1,6 +1,6 @@
 /** Stylesheet for the tooltips (jquery.tipsy) */
 .tipsy { font-size: 12px; font-family: 'Lucida Grande', sans-serif; position: absolute; padding: 5px; z-index: 100000; }
-  .tipsy-inner { background-color: #000; color: #fafafa; max-width: 130px; padding: 6px 8px 6px 8px; text-align: center; }
+  .tipsy-inner { background-color: #000; color: #fafafa; max-width: 130px; padding: 8px 8px 8px 8px; text-align: center; }
 
   /* Rounded corners */
   .tipsy-inner { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }

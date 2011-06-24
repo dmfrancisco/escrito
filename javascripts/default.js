@@ -1,7 +1,12 @@
 var strings = {
+  // Titles
   "import-button-title-plain"    : "Import a text file from your system",
   "import-button-title-textile"  : "Import a Textile file from your system",
-  "import-button-title-markdown" : "Import a Markdown file from your system"
+  "import-button-title-markdown" : "Import a Markdown file from your system",
+  // Menus
+  "export-text-plain"    : "Text file",
+  "export-text-textile"  : "Textile file",
+  "export-text-markdown" : "Markdown file"
 }
 
 $(document).ready(function()
@@ -61,17 +66,23 @@ $(document).ready(function()
         val = val.replace(/  /g, "&nbsp;&nbsp;"); // Whitespaces
         $('#paper').html("<p></p>" + val);
         $('#import-button').attr("title", strings['import-button-title-plain']);
+        $('#export-text').text(strings['export-text-plain']);
         break;
+
       case "textile":
         editor.setParser('TextileParser');
         $('#paper').html(textile(val));
         $('#import-button').attr("title", strings['import-button-title-textile']);
+        $('#export-text').text(strings['export-text-textile']);
         break;
+
       case "markdown":
         editor.setParser('MarkdownParser');
         $('#paper').html(converter.makeHtml(val));
         $('#import-button').attr("title", strings['import-button-title-markdown']);
+        $('#export-text').text(strings['export-text-markdown']);
         break;
+
       case "latex":
         break;
     }
