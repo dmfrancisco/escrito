@@ -20,7 +20,8 @@ $(document).ready(function()
     indentUnit: 4,
     parserConfig: {'strictErrors': true},
     iframeClass: "editor",
-    height: '100%'
+    height: '100%',
+    initCallback: init
   });
 
   function render(val) {
@@ -32,6 +33,7 @@ $(document).ready(function()
         $('#paper').html("<p></p>" + val);
         break;
       case "textile":
+        editor.setParser('TextileParser');
         $('#paper').html(textile(val));
         break;
       case "markdown":
@@ -39,7 +41,6 @@ $(document).ready(function()
         $('#paper').html(converter.makeHtml(val));
         break;
       case "latex":
-        $('#paper').html(val);
         break;
     }
   }
@@ -88,6 +89,8 @@ $(document).ready(function()
     render(editor.getCode());
   });
 
-  render($('#code').val());
-  $('.editor').hide();
+  function init() {
+    render($('#code').val());
+    $('.editor').hide();
+  }
 });
