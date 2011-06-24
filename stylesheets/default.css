@@ -14,17 +14,18 @@ html, body {
   background-image: url('../images/toolbar-bgd.png');
   -webkit-box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 0 0 1px rgb(150, 150, 150),
+    0 0 0 1px rgba(0, 0, 0, 0.2),
     0 1px 2px rgba(0, 0, 0, 0.25);
   -moz-box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 0 0 1px rgb(150, 150, 150),
+    0 0 0 1px rgba(0, 0, 0, 0.2),
     0 1px 2px rgba(0, 0, 0, 0.25);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 0 0 1px rgb(150, 150, 150),
+    0 0 0 1px rgba(0, 0, 0, 0.2),
     0 1px 2px rgba(0, 0, 0, 0.25);
   border-bottom: 1px dotted #222;
+  z-index: 500;
 }
 #toolbar .logo {
   background: url('../images/logo-alpha.png') no-repeat;
@@ -59,7 +60,7 @@ html, body {
 }
 #toolbar .import-button {
   position: absolute;
-  padding: 2px;
+  padding: 1px;
   right: 115px;
   z-index: 1000;
 }
@@ -70,7 +71,7 @@ html, body {
 }
 #toolbar .print-button {
   position: absolute;
-  padding: 2px;
+  padding: 1px;
   right: 5px;
 }
 
@@ -80,7 +81,7 @@ html, body {
 
 #editor {
   position:absolute;
-  top:35px;
+  top:0px;
   left:0px;
   right:0px;
   bottom:0px;
@@ -91,9 +92,9 @@ html, body {
 
 #preview {
   position:absolute;
-  top:35px;
-  left:0px;
-  right:0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   bottom:0px;
   overflow: auto;
 }
@@ -111,4 +112,20 @@ mark {
 .bigger {
   font-size: 15px;
   line-height:20px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.7);
 }

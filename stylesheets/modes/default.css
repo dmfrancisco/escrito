@@ -1,5 +1,15 @@
 html {
   cursor: text;
+  overflow: auto;
+}
+body {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .editbox {
@@ -14,6 +24,23 @@ html {
 
 .editbox p {
   margin: 0;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #333;
 }
 
 .editbox span.paragraph,

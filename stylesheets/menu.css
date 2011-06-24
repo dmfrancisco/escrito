@@ -20,63 +20,6 @@ div.menu div:first-child {
   clear: both;
 }
 
-.return-button, .return-button-left, .return-button-right {
-  -webkit-box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(130, 130, 130),
-    0 1px 2px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(130, 130, 130),
-    0 1px 2px rgba(0, 0, 0, 0.25);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(130, 130, 130),
-    0 1px 2px rgba(0, 0, 0, 0.25);
-
-  background-color: #d3d3d3;
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(rgb(225, 225, 225)),
-      to(rgb(180, 180, 180))
-    );
-  color: #333;
-  font: 11px/20px 'Lucida Grande', sans-serif;
-  padding: 4px 10px 5px 10px;
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.return-button {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.return-button-left {
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
-}
-
-.return-button-right {
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-topright: 3px;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
 .return-button:active {
   -webkit-box-shadow:
     inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
@@ -92,7 +35,7 @@ div.menu div:first-child {
     0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-a.opener {
+a.opener, .return-button {
   background-color: #d3d3d3;
   background-image:
     -webkit-gradient(
@@ -139,7 +82,7 @@ a.opener {
   text-decoration: none;
 }
 
-a.opener-left {
+a.opener-left, .return-button-left {
   -webkit-border-bottom-right-radius: 0px;
   -webkit-border-top-right-radius: 0px;
   -moz-border-radius-bottomright: 0px;
@@ -148,7 +91,7 @@ a.opener-left {
   border-top-right-radius: 0px;
 }
 
-a.opener-right {
+a.opener-right, .return-button-right {
   -webkit-border-bottom-left-radius: 0px;
   -webkit-border-top-left-radius: 0px;
   -moz-border-radius-bottomleft: 0px;
