@@ -1,3 +1,9 @@
+var strings = {
+  "import-button-title-plain"    : "Import a text file from your system",
+  "import-button-title-textile"  : "Import a Textile file from your system",
+  "import-button-title-markdown" : "Import a Markdown file from your system"
+}
+
 $(document).ready(function()
 {
   var renderMode = "textile";
@@ -7,7 +13,30 @@ $(document).ready(function()
   $("select, input:checkbox, input:radio, input:file").uniform();
 
   // Tooltips (http://onehackoranother.com/projects/jquery/tipsy)
-  $('#link-github').tipsy();
+  $('#import-button').tipsy({opacity: 1, trigger: 'manual'});
+  $('#import-button').bind('mouseenter', function (e) {
+     var allMenus = $('.opener');
+     // Check if there is a menu opened
+     if (allMenus.filter('.open').length != 0) {
+       // Hide all opened menus but add a class to enable linked menus
+       allMenus.each(function() {
+         hideWindow($(this));
+         $(this).addClass('menu-link');
+       });
+     }
+     $(this).tipsy("show");
+  });
+  $('#import-button').bind('mouseleave', function (e) {
+     $(this).tipsy("hide");
+  });
+  $(document).click( function(e) {
+     // Hide all opened menus
+     var allMenus = $('.opener');
+     allMenus.each(function() {
+       hideWindow($(this));
+     });
+  });
+
 
   var converter = new Showdown.converter();
 
@@ -31,14 +60,17 @@ $(document).ready(function()
         val = val.replace(/\r\n|\r|\n/g,"<br />"); // Newlines
         val = val.replace(/  /g, "&nbsp;&nbsp;"); // Whitespaces
         $('#paper').html("<p></p>" + val);
+        $('#import-button').attr("title", strings['import-button-title-plain']);
         break;
       case "textile":
         editor.setParser('TextileParser');
         $('#paper').html(textile(val));
+        $('#import-button').attr("title", strings['import-button-title-textile']);
         break;
       case "markdown":
         editor.setParser('MarkdownParser');
         $('#paper').html(converter.makeHtml(val));
+        $('#import-button').attr("title", strings['import-button-title-markdown']);
         break;
       case "latex":
         break;
@@ -89,8 +121,8 @@ $(document).ready(function()
     render(editor.getCode());
   });
 
+  $('.editor').hide();
   function init() {
     render($('#code').val());
-    $('.editor').hide();
   }
 });

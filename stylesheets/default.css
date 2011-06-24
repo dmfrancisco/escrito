@@ -52,25 +52,26 @@ html, body {
 #toolbar .preview {
   left: 240px;
 }
-#toolbar .link-github {
+#toolbar #language-menu {
+  position: absolute;
+  padding-top: 1px;
+  right: 181px;
+}
+#toolbar .import-button {
   position: absolute;
   padding: 2px;
-  right: 216px;
+  right: 115px;
+  z-index: 1000;
 }
-#toolbar .link-preview {
+#toolbar #export-menu {
   position: absolute;
-  padding: 2px;
-  right: 123px;
+  padding-top: 1px;
+  right: 60px;
 }
-#toolbar .link-project {
+#toolbar .print-button {
   position: absolute;
   padding: 2px;
   right: 5px;
-}
-#toolbar #menu {
-  position: absolute;
-  padding-top: 1px;
-  right: 346px;
 }
 
 #code {
@@ -97,57 +98,6 @@ html, body {
   overflow: auto;
 }
 
-.return-button {
-  -webkit-box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(130, 130, 130),
-    0 1px 2px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(130, 130, 130),
-    0 1px 2px rgba(0, 0, 0, 0.25);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(130, 130, 130),
-    0 1px 2px rgba(0, 0, 0, 0.25);
-
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-
-  background-color: #d3d3d3;
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(rgb(225, 225, 225)),
-      to(rgb(180, 180, 180))
-    );
-  color: #333;
-  font: 11px/20px 'Lucida Grande', sans-serif;
-  padding: 4px 10px 5px 10px;
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.return-button:active {
-  -webkit-box-shadow:
-    inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(140, 140, 140),
-    0 1px 1px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow:
-    inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(140, 140, 140),
-    0 1px 1px rgba(0, 0, 0, 0.3);
-  box-shadow:
-    inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgb(140, 140, 140),
-    0 1px 1px rgba(0, 0, 0, 0.3);
-}
 mark {
   background-color: #FFFFB3;
   font-weight: bold;

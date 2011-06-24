@@ -7,11 +7,33 @@ $(document).ready(function() {
   });
 
   $('.opener').click(function(e) {
+    e.stopPropagation();
     e.preventDefault();
     if($(this).hasClass('open')) {
       hideWindow($(this));
     }
     else {
+      showWindow($(this));
+      var startLink = $(this);
+      $('.canvas').click(function() {
+        hideWindow(startLink);
+      });
+    }
+  });
+  $('.opener').bind('mouseenter', function(e) {
+    var allMenus = $('.open');
+    // Check if there is a menu open, or if there was and now the user
+    // is reading the tipsy tooltip (menu-link class)
+    if (allMenus.length != 0 || $('.menu-link').length != 0) {
+      // Hide all the opened menus
+      allMenus.each(function() {
+        hideWindow($(this));
+      });
+      // Remove the helper class
+      $('.menu-link').each(function() {
+        $(this).removeClass('menu-link');
+      });
+      // Show this one
       showWindow($(this));
       var startLink = $(this);
       $('.canvas').click(function() {
