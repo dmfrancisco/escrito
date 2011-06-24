@@ -43,18 +43,6 @@ $(document).ready(function()
      });
   });
 
-  // Show & hide toolbar
-  $('#toolbar-area').mouseover(function() {
-     $('#toolbar').slideDown('fast');
-  });
-  $('#toolbar').mouseleave(function() {
-     if (!$('#preview').is(":visible"))
-        setTimeout(function() { $('#toolbar').slideUp('fast'); }, 1500);
-  });
-  $('#preview').click(function() {
-     setTimeout(function() { $('#toolbar').slideUp('fast'); }, 500);
-  });
-
   var converter = new Showdown.converter();
 
   // Editor
@@ -147,5 +135,16 @@ $(document).ready(function()
   $('.editor').hide();
   function init() {
     render($('#code').val());
+
+    // Show & hide toolbar
+    $('#toolbar-area').mouseover(function() {
+       $('#toolbar').slideDown('fast');
+    });
+    $(editor.win.document).click(function() {
+       setTimeout(function() { $('#toolbar').slideUp('fast'); }, 500);
+    });
+    $('#preview').click(function() {
+       setTimeout(function() { $('#toolbar').slideUp('fast'); }, 500);
+    });
   }
 });

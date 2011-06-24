@@ -19,7 +19,7 @@ body {
   font-size: 13px;
   line-height: 19px;
   color: #fff;
-  background: #111;
+  background: #212121;
 }
 
 .editbox p {
@@ -33,7 +33,7 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #212121;
 }
 
 /* Handle */
