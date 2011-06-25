@@ -70,8 +70,9 @@ function writeOn() {
 
 /* Text file drag-and-drop */
 function dropFile() {
-    if (typeof window.FileReader === 'undefined') {
-        alert('fail');
+    // Check for the various File API support.
+    if (!window.File || !window.FileReader) {
+      alert('The File APIs are not fully supported in this browser.');
     }
 
     $("#preview").bind('dragover', function() {
@@ -87,8 +88,13 @@ function dropFile() {
 
         var file = e.originalEvent.dataTransfer.files[0], reader = new FileReader();
         reader.onload = function (event) {
-          editor.setCode(event.target.result);
-          render(event.target.result);
+            var lang = languageByFilename(file.name);
+            if (lang === 'unknown')
+                return false;
+            else changeSelectedLanguage(lang);
+
+            editor.setCode(event.target.result);
+            render(event.target.result);
         };
         reader.readAsText(file);
         return false;
@@ -142,29 +148,48 @@ function initTipsy() {
     });
 }
 
+function changeSelectedLanguage(lang) {
+    $('.language').each(function() {
+        $(this).text($(this).text().replace(' ✓', ''));
+    })
+    $("#language-"+ lang).append(" ✓");
+
+    switch(lang)
+    {
+    case "plain":
+        renderMode = "plain";
+        break;
+    case "textile":
+        renderMode = "textile";
+        break;
+    case "markdown":
+        renderMode = "markdown";
+        break;
+    case "latex":
+        renderMode = "latex";
+        break;
+    }
+}
+
+function languageByFilename(filename) {
+    switch (filename.split('.').pop())
+    {
+    case "txt":
+        return "plain";
+    case "textile":
+        return "textile";
+    case "markdown":
+    case "md":
+        return "markdown";
+    default:
+        return "unknown";
+    }
+}
+
 /* Manage click events on the language menu */
 function initLanguageMenu() {
     $('.language').click(function() {
-        $('.language').each(function() {
-            $(this).text($(this).text().replace(' ✓', ''));
-        })
-        $(this).append(" ✓");
-
-        switch (this.id)
-        {
-        case "language-plain":
-            renderMode = "plain";
-            break;
-        case "language-textile":
-            renderMode = "textile";
-            break;
-        case "language-markdown":
-            renderMode = "markdown";
-            break;
-        case "language-latex":
-            renderMode = "latex";
-            break;
-        }
+        changeSelectedLanguage($(this).attr('id').replace('language-',''));
         render(editor.getCode());
     });
 }
