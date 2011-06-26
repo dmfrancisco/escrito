@@ -1,44 +1,36 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>  <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>  <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>  <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>ACTIVO / try it</title>
+  <title>Escrito - Collaborative writing with Markdown &amp; Textile</title>
+  <meta name="description" content="Escrito - Collaborative writing with Markdown &amp; Textile">
+  <meta name="author" content="David Francisco">
 
-  <link rel="shortcut icon" href="http://activo.dmfranc.com/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" media="screen" href="stylesheets/reset.css" />
-  <link rel="stylesheet" media="screen" href="stylesheets/jquery.tipsy.css" />
-  <link rel="stylesheet" media="screen" href="stylesheets/uniform.default.css" />
-  <link rel="stylesheet" media="screen" href="stylesheets/default.css" />
-  <link rel="stylesheet" media="screen" href="stylesheets/menu.css" />
-  <link rel="stylesheet" media="screen" href="stylesheets/preview.css" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css?v=2">
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script src="javascripts/jquery.tipsy.js"></script>
-  <script src="javascripts/jquery.hotkeys.js"></script>
-  <script src="javascripts/jquery.uniform.min.js"></script>
-  <script src="javascripts/codemirror/codemirror.min.js"></script>
-  <script src="javascripts/default.js"></script>
-  <script src="javascripts/jquery.switch.js"></script>
-  <script src="javascripts/menu.js"></script>
-
-  <script src="javascripts/parsers/textile.js"></script>
-  <script src="javascripts/parsers/showdown.js"></script>
+  <script src="js/libs/modernizr-1.7.min.js"></script>
 </head>
-
 <body>
+  <div id="container">
+    <header>
+      <div id="toolbar">
+        <div class="logo"></div>
+        <span class="code">Write</span>
+        <div id="switch"></div>
+        <span class="preview">Preview</span>
 
-  <div id="toolbar-area">
-    <div id="toolbar">
-      <div class="logo"></div>
-      <span class="code">Write</span>
-      <div id="switch"></div>
-      <span class="preview">Preview</span>
-
-      <div id="language-menu" class="menu right">
-        <div>
+        <div id="language-menu" class="menu right">
+          <div>
           <a href="#" class="opener">Language</a>
           <ul class="popup">
             <li><a class="language" id="language-plain" href="#">Plain text</a></li>
@@ -47,15 +39,15 @@
             <li><span class="language" id="language-latex">Latex</span></li>
           </ul>
           <div class="clear"></div>
+          </div>
         </div>
-      </div>
 
-      <span class="import-button">
-        <a href="#" class="return-button return-button-left" id="import-button" title="Import a text file from your system">Import</a>
-      </span>
+        <span class="import-button">
+          <a href="#" class="return-button return-button-left" id="import-button" title="Import a text file from your system">Import</a>
+        </span>
 
-      <div id="export-menu" class="menu right">
-        <div>
+        <div id="export-menu" class="menu right">
+          <div>
           <a href="#" class="opener opener-right">Export</a>
           <ul class="popup">
             <li><a class="export" id="export-text" href="#">Text file</a></li>
@@ -63,76 +55,39 @@
             <li><span class="export" id="export-pdf">PDF file</span></li>
           </ul>
           <div class="clear"></div>
+          </div>
         </div>
+
+        <span class="print-button">
+          <a href="#" class="return-button" id="print-button">Print</a>
+        </span>
+      </div>
+    </header>
+
+    <div id="main" role="main">
+      <div id="editor">
+        <textarea id="code">
+        </textarea>
       </div>
 
-      <span class="print-button">
-        <a href="#" class="return-button" id="print-button">Print</a>
-      </span>
+      <div id="preview">
+        <div id="desk">
+          <div id="toolbar-tip"></div>
+          <div id="paper"></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="editor">
-  <textarea id="code">
-h1. Title h1
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
-h2. Title h2
-h3. Title h3
-
-p. An "example":http://textile.com link.
-p. *Bold*, _Italics_, +Underline+, -Strike through-, %{color:red}Red text %, ~Subscript~.
-
-p.
-
-
-|_. Column 1 |_. Column 2 |
-| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.     | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. |
-
-
-
-# List
-## Item
-## Item
-## Item
-## Item
-# List
-## Item
-## Item
-### Sub-item
-### Sub-item
-# List
-
-
-
-* Item 1
-** Sub-item 1
-** Sub-item 2
-** Sub-item 3
-* Item 2
-** Sub-item 1
-** Sub-item 2
-
-!http://dl.dropbox.com/u/1745359/tumblr/post%235/lenna.jpg!
-
-
-@Some code snippet@
-
-
-p(. Indentation
-p((. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-p.
-  </textarea>
-  </div>
-
-  <div id="preview">
-    <div id="desk">
-      <div id="toolbar-tip"></div>
-      <div id="paper"></div>
-    </div>
-  </div>
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
+  <script src="js/libs/codemirror.min.js"></script>
+  <script src="js/libs/jquery.uniform.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!--[if lt IE 7 ]>
+  <script src="js/libs/dd_belatedpng.js"></script>
+  <script> DD_belatedPNG.fix('img, .png_bg');</script>
+  <![endif]-->
 </body>
+</html>

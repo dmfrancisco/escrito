@@ -1,0 +1,14 @@
+
+/* TEAM */
+  Author: David Francisco
+  Site: dmfranc.com
+  Twitter: @dmfrancisco
+  Location: Coimbra, Portugal
+
+/* THANKS */
+  Name:
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software:
