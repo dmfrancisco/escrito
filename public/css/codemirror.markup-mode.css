@@ -21,6 +21,18 @@ html {
   margin: 0;
 }
 
+/* Selected text */
+
+::-moz-selection {
+  background: #D91E76;
+  color: #fff;
+  text-shadow: none;
+}
+::selection {
+  background: #D91E76;
+  color: #fff;
+  text-shadow: none;
+}
 
 /* Scrollbars */
 
