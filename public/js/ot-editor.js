@@ -90,7 +90,7 @@ function CollaborativeEditor(ctl, session_id, channel, socket_id) {
         var args = event['args'];
         var user = parseInt(event['user']);
 
-        console.debug("--> insertx ", args);
+        console.debug("--> insert ", args);
 
         // We have received an insert request from another user.
         var buffer = new Buffer([new Segment(args[0], args[3])]);
@@ -121,7 +121,7 @@ function CollaborativeEditor(ctl, session_id, channel, socket_id) {
         var user = parseInt(event['user']);
 
         if (args[0] != ce._localUser) {
-            console.debug("--> insertx ", args);
+            console.debug("--> insert ", args);
 
             // We have received an insert request from another user.
             var buffer = new Buffer([new Segment(args[0], args[3])]);
