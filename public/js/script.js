@@ -370,6 +370,14 @@ function init() {
     // Iphone switch
     $('#switch').iphoneSwitch("on", previewOn, writeOn,
         editor.win.document, { switch_path: 'images/switch.png' });
+
+    // Subscribe channels
+    var pusher = new Pusher('b573ecb0e0447d7126b7');
+
+    pusher.bind('pusher:connection_established', function(evt) {
+      var channel = pusher.subscribe(document_id);
+      var collabEdit = new CollaborativeEditor(editor, document_id, channel, evt.socket_id);
+    });
 }
 
 $(document).ready(function()
@@ -385,6 +393,7 @@ $(document).ready(function()
         parserConfig: { 'strictErrors': true },
         iframeClass: "editor",
         height: '100%',
+        onChange: CollaborativeEditor.prototype._handleUpdates,
         initCallback: init
     });
 
