@@ -10,7 +10,7 @@ html {
   font-size: 15px;
   line-height: 25px;
   color: #111;
-  background: #EDE9E5 url('../images/bgd-write.png');
+  background: #F1F1F1;
 
   margin: 50px auto 50px auto;
   padding: 50px;
@@ -41,7 +41,7 @@ html {
 }
 ::-webkit-scrollbar-track {
   /* Track */
-  background: #EDE9E5;
+  background: #F1F1F1;
 }
 ::-webkit-scrollbar-thumb {
   /* Handle */
@@ -50,7 +50,7 @@ html {
   background: rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-corner {
-  background: #EDE9E5;
+  background: #F1F1F1;
 }
 
 /** Syntax highlight */
