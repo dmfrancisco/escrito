@@ -35,8 +35,7 @@ header, #toolbar {
   padding: 5px;
   padding-left: 15px;
   height: 24px;
-  background-color: rgba(255, 255, 255, 0.4);
-  background-image: url('../images/toolbar-bgd.png');
+  background-color: rgba(255, 255, 255, 0.7);
   -webkit-box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     0 0 0 1px rgba(0, 0, 0, 0.2),
@@ -247,16 +246,8 @@ div.menu div:first-child {
     0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-a.opener, .return-button {
+a.opener, .return-button, a.return-button:visited {
   background-color: #d3d3d3;
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(rgb(225, 225, 225)),
-      to(rgb(180, 180, 180))
-    );
 
   -webkit-box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.6),

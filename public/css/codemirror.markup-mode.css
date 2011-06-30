@@ -9,8 +9,8 @@ html {
   font-family: 'Monaco','Lucida Console',monospace;
   font-size: 15px;
   line-height: 25px;
-  color: #fff;
-  background: #212121;
+  color: #111;
+  background: #EDE9E5 url('../images/bgd-write.png');
 
   margin: 50px auto 50px auto;
   padding: 50px;
@@ -41,16 +41,16 @@ html {
 }
 ::-webkit-scrollbar-track {
   /* Track */
-  background: #212121;
+  background: #EDE9E5;
 }
 ::-webkit-scrollbar-thumb {
   /* Handle */
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #333;
+  background: rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-corner {
-  background: #212121;
+  background: #EDE9E5;
 }
 
 /** Syntax highlight */
@@ -60,8 +60,9 @@ html {
 .editbox span.unordered-list-item,
 .editbox span.ordered-list-item,
 .editbox span.rule,
-.editbox span.link {
-  color: #aaa;
+.editbox span.link,
+.editbox span.blockquote {
+  color: #666;
 }
 .editbox span.bold {
   font-weight: bold;
@@ -86,7 +87,6 @@ html {
   margin-left:-0.1em;
 }
 .editbox span.blockquote {
-  color: #aaa;
   margin-left: 30px;
 }
 .editbox span.nochange {
