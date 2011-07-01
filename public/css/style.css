@@ -19,8 +19,6 @@ body {
   background: #F1F1F1;
   font-family: helvetica, arial, sans-serif;
 }
-::-moz-selection{ background: #D91E76; color:#fff; text-shadow: none; }
-::selection { background:#D91E76; color:#fff; text-shadow: none; }
 
 header, #toolbar {
   position:absolute;
@@ -167,9 +165,9 @@ header, #toolbar {
   margin: 0; padding: 0;
 }
 #paper.hover {
-  -webkit-box-shadow: 0 0 20px #BED4EB;
-  -moz-box-shadow: 0 0 20px #BED4EB;
-  box-shadow: 0 0 20px #BED4EB;
+  -webkit-box-shadow: 0 0 20px #D91E76;
+  -moz-box-shadow: 0 0 20px #D91E76;
+  box-shadow: 0 0 20px #F6BFD9;
 }
 
 
