@@ -255,14 +255,24 @@ function initTipsy() {
 }
 
 function changeSelectedLanguage(lang) {
-    if (lang === "") lang = "textile";
-
     $('.language').each(function() {
         $(this).text($(this).text().replace(' ✓', ''));
     })
-    $("#language-"+ lang).append(" ✓");
 
     renderMode = lang;
+    switch (lang)
+    {
+    case "plain":
+        renderMode = "plain";
+        break;
+    case "markdown":
+        renderMode = "markdown";
+        break;
+    case "textile":
+    default:
+        renderMode = "textile";
+    }
+    $("#language-"+ renderMode).append(" ✓");
     window.location.hash = renderMode;
 }
 
