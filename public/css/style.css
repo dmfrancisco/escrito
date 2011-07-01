@@ -20,8 +20,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
     background: #F1F1F1;
     font-family: helvetica, arial, sans-serif;
   }
-  ::-moz-selection{ background: #D91E76; color:#fff; text-shadow: none; }
-  ::selection { background:#D91E76; color:#fff; text-shadow: none; }
+  ::-moz-selection{ background: #4E8DED; color:#fff; text-shadow: none; }
+  ::selection { background: #4E8DED; color:#fff; text-shadow: none; }
 
   header, #toolbar {
     position:absolute;
@@ -36,7 +36,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
     padding: 5px;
     padding-left: 15px;
     height: 24px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(230, 230, 230, 0.9);
     -webkit-box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.4),
       0 0 0 1px rgba(0, 0, 0, 0.2),
@@ -182,9 +182,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   margin: 0; padding: 0;
 }
 #paper.hover {
-  -webkit-box-shadow: 0 0 20px #D91E76;
-  -moz-box-shadow: 0 0 20px #D91E76;
-  box-shadow: 0 0 20px #F6BFD9;
+  -webkit-box-shadow: 0 0 30px rgba(78,141,237,.5);
+  -moz-box-shadow: 0 0 30px rgba(78,141,237,.5);
+  box-shadow: 0 0 30px rgba(78,141,237,.5);
 }
 
 #paper hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
