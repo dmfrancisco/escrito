@@ -255,26 +255,15 @@ function initTipsy() {
 }
 
 function changeSelectedLanguage(lang) {
+    if (lang === "") lang = "textile";
+
     $('.language').each(function() {
         $(this).text($(this).text().replace(' ✓', ''));
     })
     $("#language-"+ lang).append(" ✓");
 
-    switch(lang)
-    {
-    case "plain":
-        renderMode = "plain";
-        break;
-    case "textile":
-        renderMode = "textile";
-        break;
-    case "markdown":
-        renderMode = "markdown";
-        break;
-    case "latex":
-        renderMode = "latex";
-        break;
-    }
+    renderMode = lang;
+    window.location.hash = renderMode;
 }
 
 function languageByFilename(filename) {
@@ -342,8 +331,8 @@ function whileLoading() {
     initTipsy();
     markdownConverter = new Showdown.converter();
 
-    renderMode = "textile"; // Current parser being used
-    $('#language-textile').append(" ✓"); // Update the language menu
+    // Set current parser being used
+    changeSelectedLanguage(window.location.hash.replace("#",""));
 
     // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
     $("select, input:checkbox, input:radio, input:file").uniform();
