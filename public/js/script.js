@@ -275,6 +275,9 @@ function changeSelectedLanguage(lang) {
     case "markdown":
         renderMode = "markdown";
         break;
+    case "haml": // Test
+        renderMode = "haml";
+        break;
     case "textile":
     default:
         renderMode = "textile";
