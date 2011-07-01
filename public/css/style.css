@@ -187,24 +187,24 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   box-shadow: 0 0 20px #F6BFD9;
 }
 
-hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
+#paper hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
 
 /* Tables */
 
-table {
+#paper table {
   font-size: 14px;
   background: #fff;
   border-collapse: collapse;
   text-align: left;
   margin-bottom: 30px;
 }
-th {
+#paper th {
   font-size: 17px;
   font-weight: normal;
   border-bottom: 2px solid #222;
   padding: 10px 8px;
 }
-td {
+#paper td {
   padding: 10px 8px 0;
 }
 
@@ -223,44 +223,44 @@ td {
 
 /* Lists (from getskeleton.com) */
 
-ul, ol {
+#paper ul, #paper ol {
     margin-bottom: 20px;
 }
-ul {
+#paper ul {
     list-style: square outside;
 }
-ol {
+#paper ol {
     list-style: decimal;
 }
-ol, ul.square, ul.circle, ul.disc {
+#paper ol, #paper ul.square, #paper ul.circle, #paper ul.disc {
     margin-left: 30px;
 }
-ul.square {
+#paper ul.square {
     list-style: square outside;
 }
-ul.circle {
+#paper ul.circle {
     list-style: circle outside;
 }
-ul.disc {
+#paper ul.disc {
     list-style: disc outside;
 }
-ul ul, ul ol,
-ol ol, ol ul {
+#paper ul ul, #paper ul ol,
+#paper ol ol, #paper ol ul {
     margin: 4px 0 5px 30px;
     font-size: 90%;
 }
-ul ul li, ul ol li,
-ol ol li, ol ul li {
+#paper ul ul li, #paper ul ol li,
+#paper ol ol li, #paper ol ul li {
     margin-bottom: 6px;
 }
-li {
+#paper li {
     line-height: 18px;
     margin-bottom: 12px;
 }
-ul.large li {
+#paper ul.large li {
     line-height: 21px;
 }
-li p {
+#paper li p {
     line-height: 21px;
 }
 
