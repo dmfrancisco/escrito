@@ -357,6 +357,11 @@ function whileLoading() {
         $("#paper").removeClass('hover');
     });
 
+    // When clicking the import button
+    $('#import-button').click(function(e) {
+        $('#paper').html("<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, from your system, into this paper sheet.</p>");
+    });
+
     initLanguageMenu(); // Manage click events on the language menu
     initExportMenu(); // Manage click events on the export menu
     dropFile(); // Allow drag-and-drop of text files
