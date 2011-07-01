@@ -149,6 +149,13 @@ function render(val) {
         $('#export-text').text(strings['export-text-markdown']);
         break;
 
+    case "haml":
+        editor.setParser('MarkdownParser');
+        $('#paper').html(Haml(val));
+        $('#import-button').attr("title", strings['import-button-title-markdown']);
+        $('#export-text').text(strings['export-text-markdown']);
+        break;
+
     case "latex":
         break;
     }
