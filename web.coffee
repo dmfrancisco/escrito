@@ -1,4 +1,4 @@
-# Run "cake build" and "foreman start" or "node web.js"
+# Run "npm install", "cake build" and "foreman start" or "node web.js"
 
 # require.paths.push '/usr/local/node/lib/node_modules'
 #!/usr/bin/env coffee

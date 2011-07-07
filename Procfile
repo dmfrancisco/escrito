@@ -1,1 +1,1 @@
-web: node web.js
+web: cake build && node web.js
