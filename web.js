@@ -1,5 +1,5 @@
 (function() {
-  var connect, options, server, sharejs, sys;
+  var connect, options, rtg, server, sharejs, sys;
   connect = require('connect');
   sharejs = require('share').server;
   sys = require('sys');
@@ -18,11 +18,22 @@
       return wiki(docName, server.model, res, next);
     });
   }));
-  options = {
-    db: {
-      type: 'memory'
-    }
-  };
+  if (process.env.REDISTOGO_URL) {
+    rtg = require("url").parse(process.env.REDISTOGO_URL);
+    options = {
+      db: {
+        type: 'redis',
+        hostname: rtg.hostname,
+        port: rtg.port
+      }
+    };
+  } else {
+    options = {
+      db: {
+        type: 'redis'
+      }
+    };
+  }
   sharejs.attach(server, options);
   server.listen(process.env.PORT || 3000);
   sys.puts("Escrito is running at " + process.env.PORT + "!");

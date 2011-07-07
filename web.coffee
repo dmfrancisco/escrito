@@ -24,7 +24,12 @@ server = connect(
 
 )
 
-options = { db: { type: 'memory' } }
+if process.env.REDISTOGO_URL
+  # Using RedisToGo Heroku Add-on
+  rtg = require("url").parse(process.env.REDISTOGO_URL)
+  options = { db: { type: 'redis', hostname: rtg.hostname, port: rtg.port } }
+else
+  options = { db: { type: 'redis' } } # Local
 
 # Attach the sharejs REST and Socket.io interfaces to the server
 sharejs.attach server, options
