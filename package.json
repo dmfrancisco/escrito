@@ -2,7 +2,7 @@
   "name": "escrito",
   "version": "0.0.1",
   "dependencies": {
-    "share": ">= 0.1.1",
+    "share": ">= 0.2.1",
     "connect": "~1.1.1",
     "coffee-script": "~1.0.0",
     "redis": "*",
