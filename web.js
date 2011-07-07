@@ -23,8 +23,8 @@
     options = {
       db: {
         type: 'redis',
-        hostname: rtg.hostname,
-        port: rtg.port
+        hostname: rtg.port,
+        port: rtg.hostname
       }
     };
   } else {
