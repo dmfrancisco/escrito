@@ -1,3 +1,5 @@
+# Run "cake build" and "foreman start" or "node web.js"
+
 # require.paths.push '/usr/local/node/lib/node_modules'
 #!/usr/bin/env coffee
 
@@ -11,12 +13,12 @@ server = connect(
   connect.static(__dirname + '/public'),
   connect.router (app) ->
 
-    wiki = require './wiki'
-    app.get '/wiki/?', (req, res, next) ->
-      res.writeHead 301, {location: '/wiki/Main'}
+    wiki = require './editor'
+    app.get '/doc/?', (req, res, next) ->
+      res.writeHead 301, {location: '/doc/default'}
       res.end()
 
-    app.get '/wiki/:docName', (req, res, next) ->
+    app.get '/doc/:docName', (req, res, next) ->
       docName = req.params.docName
       wiki docName, server.model, res, next
 

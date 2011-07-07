@@ -5,14 +5,14 @@
   sys = require('sys');
   server = connect(connect.favicon(__dirname + '/public/favicon.ico'), connect.logger(), connect.static(__dirname + '/public'), connect.router(function(app) {
     var wiki;
-    wiki = require('./wiki');
-    app.get('/wiki/?', function(req, res, next) {
+    wiki = require('./editor');
+    app.get('/doc/?', function(req, res, next) {
       res.writeHead(301, {
-        location: '/wiki/Main'
+        location: '/doc/default'
       });
       return res.end();
     });
-    return app.get('/wiki/:docName', function(req, res, next) {
+    return app.get('/doc/:docName', function(req, res, next) {
       var docName;
       docName = req.params.docName;
       return wiki(docName, server.model, res, next);
