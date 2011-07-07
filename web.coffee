@@ -29,5 +29,5 @@ options = { db: { type: 'redis' } }
 # Attach the sharejs REST and Socket.io interfaces to the server
 sharejs.attach server, options
 
-server.listen 8000
-sys.puts 'Demos running at http://localhost:8000/'
+server.listen(process.env.PORT || 3000)
+sys.puts "Escrito is running at #{process.env.PORT}!"
