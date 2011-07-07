@@ -20,7 +20,7 @@
   }));
   options = {
     db: {
-      type: 'redis'
+      type: 'memory'
     }
   };
   sharejs.attach(server, options);
