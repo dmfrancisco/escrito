@@ -16,9 +16,11 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="stylesheet" href="/css/editor.css">
+  <link rel="stylesheet" href="/lib/ace/theme-escrito.css">
 
-  <script src="js/libs/modernizr-1.7.min.js"></script>
+  <script src="/js/libs/modernizr-1.7.min.js"></script>
 </head>
 <body>
   <div id="container">
@@ -65,8 +67,8 @@
     </header>
 
     <div id="main" role="main">
-      <div id="editor">
-        <textarea id="code"></textarea>
+      <div id="editbox">
+        <div id="editor">{{{content}}}</div>
       </div>
 
       <div id="preview">
@@ -79,27 +81,33 @@
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
-  <script src="js/libs/codemirror.min.js"></script>
-  <script src="js/libs/jquery.uniform.min.js"></script>
-  <script src="js/plugins.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
 
-  <script src="http://js.pusherapp.com/1.8/pusher.min.js"></script>
-  <script src="js/algorithm/text.js"></script>
-  <script src="js/algorithm/operations.js"></script>
-  <script src="js/algorithm/request.js"></script>
-  <script src="js/algorithm/state.js"></script>
-  <script src="js/libs/json2.js"></script>
-  <script src="js/libs/diff_match_patch.js"></script>
-  <script src="js/ot-editor.js"></script>
+  <script src="/lib/markdown/showdown.js" type="text/javascript"></script>
+  <script src="/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/share/share.js"></script>
+  <script src="/share/share-ace.js"></script>
+
+  <script src="/lib/ace/behaviour.js"></script>
+  <script src="/lib/ace/mode-text.js"></script>
+  <script src="/lib/ace/mode-textile.js"></script>
+  <script src="/lib/ace/mode-markdown.js"></script>
+  <script src="/lib/ace/theme-escrito.js"></script>
+
+  <script src="/js/libs/jquery.uniform.min.js"></script>
+  <script src="/js/plugins.js"></script>
+
+  <script src="/js/libs/json2.js"></script>
+  <script src="/js/libs/diff_match_patch.js"></script>
 
   <script type="text/javascript">
-    var document_id = '<%= @document_id %>';
+    var document_id = '{{{docName}}}';
   </script>
 
-  <script src="js/script.js"></script>
+  <script src="/js/script.js"></script>
   <!--[if lt IE 7 ]>
-  <script src="js/libs/dd_belatedpng.js"></script>
+  <script src="/js/libs/dd_belatedpng.js"></script>
   <script> DD_belatedPNG.fix('img, .png_bg');</script>
   <![endif]-->
 </body>

@@ -1,0 +1,65 @@
+/** Editor */
+
+#editbox {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  top: 50px;
+  bottom: 50px;
+
+  margin: 0px auto 0px auto;
+  max-width: 700px;
+  overflow: hidden;
+
+  border: #c0c0c0 1px dashed;
+}
+#editor {
+  position: absolute;
+  top: 10px;
+  bottom: 0px;
+  left: 10px;
+  right: 10px;
+
+  font-family: 'Monaco','Lucida Console',monospace;
+  font-size: 15px;
+  line-height: 25px;
+  color: #111;
+
+  overflow-x: hidden !important;
+  overflow-y: auto;
+}
+#editor p {
+  margin: 0;
+}
+
+/* Selected text */
+
+::-moz-selection {
+  background: #4E8DED;
+  color: #fff;
+  text-shadow: none;
+}
+::selection {
+  background: #4E8DED;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* Scrollbars */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  /* Track */
+  background: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+  /* Handle */
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-corner {
+  background: #F1F1F1;
+}

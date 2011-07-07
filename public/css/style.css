@@ -104,17 +104,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
     display: none:
   }
 
-  #editor {
-    position:absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    overflow: auto;
-    overflow-x: hidden;
-    border: none;
-  }
-
   #preview {
     position:absolute;
     top: 0px;

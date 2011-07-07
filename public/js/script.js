@@ -121,13 +121,23 @@ var scrollPos = 0; // Persist scroll position of the preview mode
 var editor;
 var markdownConverter;
 
+var TextMode = require("ace/mode/text").Mode;
+var textMode = new TextMode();
+var TextileMode = require("ace/mode/textile").Mode;
+var textileMode = new TextileMode();
+var MarkdownMode = require("ace/mode/markdown").Mode;
+var markdownMode = new MarkdownMode();
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* Parse written content and update the preview panel */
 function render(val) {
+    if (!val) val = editor.getSession().getValue();
+
     switch (renderMode)
     {
     case "plain":
+        editor.getSession().setMode(textMode);
         val = val.replace(/\r\n|\r|\n/g, "<br />"); // Newlines
         val = val.replace(/  /g, "&nbsp;&nbsp;"); // Whitespaces
         $('#paper').html("<p></p>" + val);
@@ -136,14 +146,14 @@ function render(val) {
         break;
 
     case "textile":
-        editor.setParser('TextileParser');
+        editor.getSession().setMode(textileMode);
         $('#paper').html(textile(val));
         $('#import-button').attr("title", strings['import-button-title-textile']);
         $('#export-text').text(strings['export-text-textile']);
         break;
 
     case "markdown":
-        editor.setParser('MarkdownParser');
+        editor.getSession().setMode(markdownMode);
         $('#paper').html(markdownConverter.makeHtml(val));
         $('#import-button').attr("title", strings['import-button-title-markdown']);
         $('#export-text').text(strings['export-text-markdown']);
@@ -155,9 +165,10 @@ function render(val) {
 }
 
 function previewOn() {
-    $('.editor').hide();
+    $('#editbox').hide();
+    $('#editor').hide();
     $('#preview').show();
-    render(editor.getCode());
+    render(editor.getSession().getValue());
     $('#preview').css('top', '0px');
     $('#preview').focus();
 
@@ -170,8 +181,9 @@ function writeOn() {
     scrollPos = $('#preview').attr('scrollTop');
 
     $('#preview').hide();
-    $('.editor').show();
-    $('.editor').focus();
+    $('#editor').show();
+    $('#editbox').show();
+    $('textarea').focus();
 }
 
 /* Text file drag-and-drop */
@@ -199,7 +211,7 @@ function dropFile() {
                 return false;
             else changeSelectedLanguage(lang);
 
-            editor.setCode(event.target.result);
+            editor.getSession().setValue(event.target.result);
             render(event.target.result);
         };
         reader.readAsText(file);
@@ -209,7 +221,7 @@ function dropFile() {
 
 /* Save written content */
 function saveText() {
-    var uriContent = "data:application/octet-stream," + encodeURIComponent(editor.getCode());
+    var uriContent = "data:application/octet-stream," + encodeURIComponent(editor.getSession().getValue());
     document.location.href = uriContent;
 }
 
@@ -295,7 +307,7 @@ function languageByFilename(filename) {
 function initLanguageMenu() {
     $('.language').click(function() {
         changeSelectedLanguage($(this).attr('id').replace('language-',''));
-        render(editor.getCode());
+        render(editor.getSession().getValue());
     });
 }
 
@@ -321,7 +333,7 @@ function initToolbar() {
     $('header').mouseover(function() {
         $('#toolbar').slideDown('fast');
     });
-    $(editor.win.document).click(function() {
+    $('#editbox').click(function() {
         setTimeout(function() {
             $('#toolbar').slideUp('fast');
         },
@@ -337,7 +349,6 @@ function initToolbar() {
 
 /* While codemirror is being loaded */
 function whileLoading() {
-    $('.editor').hide(); // Hide editor panel
     initTipsy();
     markdownConverter = new Showdown.converter();
 
@@ -373,33 +384,40 @@ function init() {
 
     // Iphone switch
     $('#switch').iphoneSwitch("on", previewOn, writeOn,
-        editor.win.document, { switch_path: 'images/switch.png' });
+        $('textarea'), { switch_path: '/images/switch.png' });
 
-    // Subscribe channels
-    var pusher = new Pusher('b573ecb0e0447d7126b7');
-
-    pusher.bind('pusher:connection_established', function(evt) {
-      var channel = pusher.subscribe(document_id);
-      var collabEdit = new CollaborativeEditor(editor, document_id, channel, evt.socket_id);
-    });
+    $('#editor').hide(); // Hide editor panel
+    $('#editbox').hide();
 }
 
 $(document).ready(function()
 {
-    // Write panel
-    editor = CodeMirror.fromTextArea('code', {
-        parserfile: ["js/libs/codemirror.markdown.js", "js/libs/codemirror.textile.js"],
-        stylesheet: "css/codemirror.markup-mode.css",
-        basefiles: ["js/libs/codemirror_base.js"],
-        textWrapping: true,
-        saveFunction: saveText,
-        indentUnit: 4,
-        parserConfig: { 'strictErrors': true },
-        iframeClass: "editor",
-        height: '100%',
-        onChange: CollaborativeEditor.prototype._handleUpdates,
-        initCallback: init
+    whileLoading();
+
+    editor = ace.edit("editor");
+
+    editor.setReadOnly(true);
+    editor.session.setUseWrapMode(true);
+    editor.setShowPrintMargin(false);
+    editor.setTheme("ace/theme/escrito");
+
+    var connection = new sharejs.Connection(window.location.hostname, 8000);
+
+    connection.open('{{{docName}}}', function(doc, error) {
+      if (error) {
+        console.error(error);
+        return;
+      }
+      doc.attach_ace(editor);
+      editor.setReadOnly(false);
+
+      window.doc = doc;
+
+      render(doc.snapshot);
+      doc.on('change', function() {
+        render(doc.snapshot);
+      });
     });
 
-    whileLoading();
+    init();
 });

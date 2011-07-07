@@ -1,0 +1,146 @@
+.ace-solarized-light .ace_editor {
+}
+
+.ace-solarized-light .ace_editor.ace_focus {
+}
+
+.ace-solarized-light .ace_gutter {
+  display: hidden;
+}
+
+.ace-solarized-light .ace_gutter-layer {
+  width: 100%;
+  text-align: right;
+}
+
+.ace-solarized-light .ace_gutter-layer .ace_gutter-cell {
+  padding-right: 6px;
+}
+
+.ace-solarized-light .ace_print_margin {
+}
+
+.ace-solarized-light .ace_scroller {
+  background-color: #F1F1F1;
+}
+
+.ace-solarized-light .ace_text-layer {
+  cursor: text;
+  color: #333;
+}
+
+.ace-solarized-light .ace_cursor {
+  border-left: 2px solid #000000;
+}
+
+.ace-solarized-light .ace_cursor.ace_overwrite {
+  border-left: 0px;
+  border-bottom: 1px solid #000000;
+}
+
+.ace-solarized-light .ace_marker-layer .ace_selection {
+  background: #4E8DED;
+  color: #fff;
+}
+
+.ace-solarized-light .ace_marker-layer .ace_step {
+  background: rgb(198, 219, 174);
+}
+
+.ace-solarized-light .ace_marker-layer .ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid rgba(147, 161, 161, 0.50);
+}
+
+.ace-solarized-light .ace_marker-layer .ace_active_line {
+  color: black;
+}
+
+
+.ace-solarized-light .ace_invisible {
+  color: rgba(147, 161, 161, 0.50);
+}
+
+.ace-solarized-light .ace_keyword {
+  color: #666;
+}
+
+.ace-solarized-light .ace_keyword.ace_operator {
+
+}
+
+.ace-solarized-light .ace_constant {
+
+}
+
+.ace-solarized-light .ace_constant.ace_language {
+  color: #666;
+}
+
+.ace-solarized-light .ace_constant.ace_library {
+
+}
+
+.ace-solarized-light .ace_constant.ace_numeric {
+  color: #666;
+}
+
+.ace-solarized-light .ace_invalid {
+
+}
+
+.ace-solarized-light .ace_invalid.ace_illegal {
+
+}
+
+.ace-solarized-light .ace_invalid.ace_deprecated {
+
+}
+
+.ace-solarized-light .ace_support {
+
+}
+
+.ace-solarized-light .ace_support.ace_function {
+  color: #666;
+}
+
+.ace-solarized-light .ace_function.ace_buildin {
+
+}
+
+.ace-solarized-light .ace_string {
+  color: #666;
+}
+
+.ace-solarized-light .ace_string.ace_regexp {
+  color: #666;
+}
+
+.ace-solarized-light .ace_comment {
+  color: #666;
+}
+
+.ace-solarized-light .ace_comment.ace_doc {
+
+}
+
+.ace-solarized-light .ace_comment.ace_doc.ace_tag {
+
+}
+
+.ace-solarized-light .ace_variable {
+
+}
+
+.ace-solarized-light .ace_variable.ace_language {
+  color: #666;
+}
+
+.ace-solarized-light .ace_xml_pe {
+
+}
+
+.ace-solarized-light .ace_collab.ace_user1 {
+
+}
