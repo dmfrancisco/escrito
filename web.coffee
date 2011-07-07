@@ -24,7 +24,7 @@ server = connect(
 
 )
 
-options = { db: { type: 'mem' } }
+options = { db: { type: 'redis' } }
 
 # Attach the sharejs REST and Socket.io interfaces to the server
 sharejs.attach server, options
