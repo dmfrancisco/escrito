@@ -25,13 +25,16 @@ The text on the left is being rendered with markdown, so you can do all the usua
 module.exports = (docName, model, res) ->
   name = docName
   docName = "wiki:" + docName
+  port = process.env.PORT || 3000
 
   model.getSnapshot docName, (data) ->
-    if data.v == 0
+    if data == null || data.v == 0
       model.applyOp docName, {op:{type:'text'}, v:0}
       model.applyOp docName, {op:[{i:defaultContent(name), p:0}], v:1}
+      content = ''
+    else
+      content = data.snapshot || ''
 
-    content = data.snapshot || ''
-    html = Mustache.to_html template, {content, name, docName}
+    html = Mustache.to_html template, {content, name, docName, port}
     res.writeHead 200, {'content-type': 'text/html'}
     res.end html

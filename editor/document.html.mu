@@ -102,7 +102,8 @@
   <script src="/js/libs/diff_match_patch.js"></script>
 
   <script type="text/javascript">
-    var document_id = '{{{docName}}}';
+    var docName = '{{{docName}}}';
+    var port = {{{port}}};
   </script>
 
   <script src="/js/script.js"></script>
