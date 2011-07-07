@@ -401,7 +401,8 @@ $(document).ready(function()
     editor.setShowPrintMargin(false);
     editor.setTheme("ace/theme/escrito");
 
-    var connection = new sharejs.Connection(window.location.hostname, 80);
+    if (window.location.hostname != "localhost") port = "80" // FIXME
+    var connection = new sharejs.Connection(window.location.hostname, port);
 
     connection.open(docName, function(doc, error) {
       if (error) {
