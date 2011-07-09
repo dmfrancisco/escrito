@@ -1,105 +1,181 @@
 
 /* Menus by Raj Ramamurthy (mynameisraj.com) */
+dropdownMenus = function() {
+    function init() {
+        $(this).children('ul').hide();
 
-$(document).ready(function() {
-    $(this).children('ul').hide();
+        $('.window-button').click(function(e) {
+            e.preventDefault();
+            makeWindow('#window');
+        });
 
-    $('.window-button').click(function(e) {
-        e.preventDefault();
-        makeWindow('#window');
-    });
+        $('.opener').click(function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if ($(this).hasClass('open')) {
+                hideWindow($(this));
+            }
+            else {
+                showWindow($(this));
+                var startLink = $(this);
+            }
+        });
 
-    $('.opener').click(function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        if ($(this).hasClass('open')) {
-            hideWindow($(this));
+        $('.opener').mouseenter(function(e) {
+            var allMenus = $('.open');
+            // Check if there is a menu open, or if there was and now the user
+            // is reading the tipsy tooltip (menu-link class)
+            if (allMenus.length != 0 || $('.menu-link').length != 0) {
+                // Hide all the opened menus
+                allMenus.each(function() {
+                    hideWindow($(this));
+                });
+                // Remove the helper class
+                $('.menu-link').each(function() {
+                    $(this).removeClass('menu-link');
+                });
+                // Show this one
+                showWindow($(this));
+                var startLink = $(this);
+            }
+        });
+
+        $('.submenu').hover(function() {
+            $(this).children('ul').show();
+            $(this).children('ul').addClass('visible');
+        },
+
+        function() {
+            $(this).children('ul').removeClass('visible');
+            $(this).children('ul').hide();
+        });
+    };
+
+    function hideWindow(startLink) {
+        var popup = startLink.next('.popup');
+        var openButton = startLink;
+        openButton.removeClass('open');
+        popup.removeClass('open');
+        popup.hide();
+    };
+
+    function showWindow(startLink) {
+        var popup = startLink.next('.popup');
+        popup.show();
+        startLink.addClass('open');
+        popup.addClass('open');
+    };
+
+    function makeOverlay() {
+        var body = $('body');
+        body.css('overflow', 'hidden');
+        var overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        body.append(overlay);
+        $(overlay).addClass('visible');
+    };
+
+    function close(windowName) {
+        var overlay = $('#overlay');
+        $('body').css('overflow', 'auto');
+        $(windowName).removeClass('visible');
+        overlay.removeClass('visible');
+        overlay.remove();
+        $(windowName).hide();
+    };
+
+    function makeWindow(windowName) {
+        makeOverlay();
+        $(windowName).hide();
+        $(windowName).show();
+        $(windowName).addClass('visible');
+        $('.close-button').click(function() {
+            close(windowName);
+        });
+    };
+
+    return { init:init, hideWindow:hideWindow, showWindow:showWindow, makeWindow:makeWindow }
+}();
+
+
+/* jQuery iphoneSwitch plugin by Daniel LaBare */
+jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_off_callback, editor, button, options) {
+    var state = start_state == 'on' ? start_state : 'off';
+
+    // Define default settings
+    var settings = {
+        mouse_over: 'pointer',
+        mouse_out:  'default',
+        switch_on_container_path: 'iphone_switch_container_on.png',
+        switch_off_container_path: 'iphone_switch_container_off.png',
+        switch_path: 'iphone_switch.png',
+        switch_height: 24,
+        switch_width: 80
+    };
+
+    if (options) {
+        jQuery.extend(settings, options);
+    }
+
+    var switchPanel = function(additionalCallback) {
+        if (state == 'on') {
+            $(document).find('.iphone_switch').animate({backgroundPosition: -40}, 300, function() {
+                jQuery(document).attr('src', settings.switch_off_container_path);
+                switched_off_callback();
+                if (typeof(additionalCallback) == "function") additionalCallback();
+            });
+            state = 'off';
         }
         else {
-            showWindow($(this));
-            var startLink = $(this);
-            // $('.canvas').click(function() {
-            //     hideWindow(startLink);
-            // });
+            $(document).find('.iphone_switch').animate({backgroundPosition: 0}, 300, function() {
+                switched_on_callback();
+                if (typeof(additionalCallback) == "function") additionalCallback();
+            });
+            $(document).find('.iphone_switch').attr('src', settings.switch_on_container_path);
+            state = 'on';
         }
-    });
-    $('.opener').bind('mouseenter',
-    function(e) {
-        var allMenus = $('.open');
-        // Check if there is a menu open, or if there was and now the user
-        // is reading the tipsy tooltip (menu-link class)
-        if (allMenus.length != 0 || $('.menu-link').length != 0) {
-            // Hide all the opened menus
-            allMenus.each(function() {
-                hideWindow($(this));
+    }
+
+    // Click handling
+    $(this).click(switchPanel);
+    $(document).bind('keydown', 'Shift+tab',switchPanel);
+    $(editor).bind('keydown', 'Shift+tab', switchPanel);
+    $(button).live('click', function() {
+        if (state == 'off') {
+            switchPanel(function() {
+                // This shouldn't be done here of course, but this is not a serious project so I'm not worried
+                $('#paper').html("<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, from " +
+                                 "your system, into this paper sheet.</p>");
             });
-            // Remove the helper class
-            $('.menu-link').each(function() {
-                $(this).removeClass('menu-link');
-            });
-            // Show this one
-            showWindow($(this));
-            var startLink = $(this);
-            // $('.canvas').click(function() {
-            //     hideWindow(startLink);
-            // });
         }
     });
 
-    $('.submenu').hover(function() {
-        $(this).children('ul').show();
-        $(this).children('ul').addClass('visible');
-    },
+    // Create the switch
+    return this.each(function() {
+        var container;
+        var image;
 
-    function() {
-        $(this).children('ul').removeClass('visible');
-        $(this).children('ul').hide();
+        // Make the container
+        container = $('<div class="iphone_switch_container" style="height:' + settings.switch_height + 'px; width:' +
+                      settings.switch_width + 'px; position: relative; overflow: hidden"></div>');
+
+        // Make the switch image based on starting state
+        image = $('<div class="iphone_switch" style="height:' + settings.switch_height + 'px; width:' +
+                  settings.switch_width + 'px; background-image:url(' + settings.switch_path +
+                  '); background-repeat:none; background-position:' + (state == 'on' ? 0 : -40) +
+                  'px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;" /></div>');
+
+        // Insert into placeholder
+        $(this).html(jQuery(container).html(jQuery(image)));
+
+        $(this).mouseover(function() {
+            $(this).css("cursor", settings.mouse_over);
+        });
+        $(this).mouseout(function() {
+            $(this).css("background", settings.mouse_out);
+        });
     });
-});
-
-function hideWindow(startLink) {
-    var popup = startLink.next('.popup');
-    var openButton = startLink;
-    openButton.removeClass('open');
-    popup.removeClass('open');
-    popup.hide();
-    // $('.canvas').remove();
-}
-
-function showWindow(startLink) {
-    var popup = startLink.next('.popup');
-    popup.show();
-    startLink.addClass('open');
-    popup.addClass('open');
-    // $('<div class="canvas"></div>').appendTo('body');
-}
-
-function makeOverlay() {
-
-    $('body').css('overflow', 'hidden');
-    var overlay = document.createElement('div');
-    overlay.id = 'overlay';
-    $('body').append(overlay);
-    $('#overlay').addClass('visible');
 };
-
-function close(windowName) {
-    $('body').css('overflow', 'auto');
-    $(windowName).removeClass('visible');
-    $('#overlay').removeClass('visible');
-    $('#overlay').remove();
-    $(windowName).hide();
-}
-
-function makeWindow(windowName) {
-    makeOverlay();
-    $(windowName).hide();
-    $(windowName).show();
-    $(windowName).addClass('visible');
-    $('.close-button').click(function() {
-        close(windowName);
-    });
-}
 
 
 
@@ -254,7 +330,7 @@ function initTipsy() {
         if (allMenus.filter('.open').length != 0) {
             // Hide all opened menus but add a class to enable linked menus
             allMenus.each(function() {
-                hideWindow($(this));
+                dropdownMenus.hideWindow($(this));
                 $(this).addClass('menu-link');
             });
         }
@@ -359,7 +435,7 @@ function whileLoading() {
     $(document).click(function(e) {
         var allMenus = $('.opener');
         allMenus.each(function() {
-            hideWindow($(this));
+            dropdownMenus.hideWindow($(this));
         });
         $("#paper").removeClass('hover');
     });
@@ -389,6 +465,7 @@ function init() {
 
 $(document).ready(function()
 {
+    dropdownMenus.init();
     whileLoading();
 
     editor = ace.edit("editor");
