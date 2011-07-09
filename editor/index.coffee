@@ -1,8 +1,6 @@
 fs = require 'fs'
 Mustache = require 'mustache'
 
-showdown = new (require('../public/lib/markdown/showdown').converter)()
-
 template = fs.readFileSync "#{__dirname}/document.html.mu", 'utf8'
 
 defaultContent = (name) -> """

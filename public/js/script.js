@@ -355,9 +355,6 @@ function whileLoading() {
     // Set current parser being used
     changeSelectedLanguage(window.location.hash.replace("#",""));
 
-    // jQuery uniform controls (http://pixelmatrixdesign.com/uniform)
-    $("select, input:checkbox, input:radio, input:file").uniform();
-
     // Hide all opened menus when clicking anywhere
     $(document).click(function(e) {
         var allMenus = $('.opener');
