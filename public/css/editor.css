@@ -3,15 +3,19 @@
 #editbox {
   position: absolute;
   left: 50px;
-  right: 50px;
+  right: 60px;
   top: 50px;
   bottom: 50px;
 
   margin: 0px auto 0px auto;
-  max-width: 700px;
+  max-width: 888px;
   overflow: hidden;
 
-  border: #c0c0c0 1px dashed;
+  background: #f8f8f7;
+  -webkit-box-shadow: 1px 1px 1px #d8d8d8;
+  -moz-box-shadow: 1px 1px 1px #d8d8d8;
+  box-shadow: 1px 1px 1px #d8d8d8;
+  border: 1px solid #C6C9CB;
 }
 #editor {
   position: absolute;
@@ -52,7 +56,7 @@
 }
 ::-webkit-scrollbar-track {
   /* Track */
-  background: #F1F1F1;
+  background: #f8f8f7;
 }
 ::-webkit-scrollbar-thumb {
   /* Handle */
@@ -61,5 +65,5 @@
   background: rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-corner {
-  background: #F1F1F1;
+  background: #f8f8f7;
 }
