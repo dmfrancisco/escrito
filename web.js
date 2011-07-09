@@ -1,14 +1,17 @@
 (function() {
-  var connect, options, rtg, server, sharejs, sys;
+  var connect, crypto, options, rtg, server, sharejs, sys;
   connect = require('connect');
   sharejs = require('share').server;
   sys = require('sys');
+  crypto = require('crypto');
   server = connect(connect.favicon(__dirname + '/public/favicon.ico'), connect.logger(), connect.static(__dirname + '/public'), connect.router(function(app) {
     var wiki;
     wiki = require('./editor');
     app.get('/doc/?', function(req, res, next) {
+      var uid;
+      uid = crypto.createHash('md5').update("" + (new Date()).getTime()).digest("hex").toString().substring(0, 9);
       res.writeHead(301, {
-        location: '/doc/default'
+        location: "/doc/" + uid
       });
       return res.end();
     });

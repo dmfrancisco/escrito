@@ -6,6 +6,7 @@
 connect = require 'connect'
 sharejs = require('share').server
 sys = require 'sys'
+crypto = require('crypto')
 
 server = connect(
   connect.favicon(__dirname + '/public/favicon.ico'),
@@ -15,7 +16,8 @@ server = connect(
 
     wiki = require './editor'
     app.get '/doc/?', (req, res, next) ->
-      res.writeHead 301, {location: '/doc/default'}
+      uid = crypto.createHash('md5').update("" + (new Date()).getTime()).digest("hex").toString().substring(0, 9)
+      res.writeHead 301, {location: "/doc/#{uid}"}
       res.end()
 
     app.get '/doc/:docName', (req, res, next) ->
