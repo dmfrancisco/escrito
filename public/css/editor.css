@@ -51,19 +51,19 @@
 
 /* Scrollbars */
 
-::-webkit-scrollbar {
+#editbox ::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-track {
+#editbox ::-webkit-scrollbar-track {
   /* Track */
   background: #f8f8f7;
 }
-::-webkit-scrollbar-thumb {
+#editbox ::-webkit-scrollbar-thumb {
   /* Handle */
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(0,0,0,0.2);
 }
-::-webkit-scrollbar-corner {
+#editbox ::-webkit-scrollbar-corner {
   background: #f8f8f7;
 }
