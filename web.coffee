@@ -25,12 +25,14 @@ server = connect(
       editor docName, server.model, res, next
 )
 
-if process.env.REDISTOGO_URL
-  # Using RedisToGo Heroku Add-on
-  rtg = require("url").parse(process.env.REDISTOGO_URL)
-  options = { db: { type: 'redis', hostname: rtg.port, port: rtg.hostname } } # ShareJS has a bug and the params are swapped
-else
-  options = { db: { type: 'redis' } } # Local
+# if process.env.REDISTOGO_URL
+#   # Using RedisToGo Heroku Add-on
+#   rtg = require("url").parse(process.env.REDISTOGO_URL)
+#   options = { db: { type: 'redis', hostname: rtg.port, port: rtg.hostname } } # ShareJS has a bug and the params are swapped
+# else
+#   options = { db: { type: 'redis' } } # Local
+
+options = { db: { type: 'memory' } }
 
 # Attach the sharejs REST and Socket.io interfaces to the server
 sharejs.attach server, options
