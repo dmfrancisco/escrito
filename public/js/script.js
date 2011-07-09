@@ -3,7 +3,7 @@
  * by Raj Ramamurthy
  * http://mynameisraj.com/
  */
-dropdownMenus = function () {
+var dropdownMenus = function () {
     function hideWindow(startLink) {
         var popup = startLink.next('.popup');
         startLink.removeClass('open');
@@ -183,7 +183,7 @@ jQuery.fn.iphoneSwitch = function (start_state, switched_on_callback, switched_o
  * Escrito
  * -------
  */
-escrito = function () {
+var escrito = function () {
     var strings = {
         // Titles
         "import-button-title-plain": "Import a text file from your system",
@@ -209,13 +209,23 @@ escrito = function () {
         MarkdownMode = require("ace/mode/markdown").Mode,
         markdownMode = new MarkdownMode();
 
+    function urlX(url) { if (/^https?:\/\//.test(url)) { return url } }
+    function idX(id) { return id }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /* Parse written content and update the preview panel */
     function render(val) {
+        // This only needs to be done when the user is in preview mode
+        if ($editbox.is(":visible")) {
+            return;
+        }
+
         if (!val) {
             val = editor.getSession().getValue();
         }
+        // Sanitize the content
+        val = html_sanitize(val, urlX, idX);
 
         switch (renderMode) {
         case "plain":
@@ -249,6 +259,7 @@ escrito = function () {
     function previewOn() {
         $editbox.hide();
         $preview.show();
+
         render(editor.getSession().getValue());
 
         // Return to saved scroll position of the preview mode
@@ -448,8 +459,8 @@ escrito = function () {
 
     /* When codemirror is ready */
     function complete() {
-        render($('#code').val()); // Render the current example text
-        initToolbar(); // Handlers to show & hide toolbar
+        // Handlers to show & hide toolbar
+        initToolbar();
 
         // Iphone switch
         $('#switch').iphoneSwitch("on", previewOn, writeOn,
