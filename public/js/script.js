@@ -381,7 +381,7 @@ function init() {
 
     // Iphone switch
     $('#switch').iphoneSwitch("on", previewOn, writeOn,
-        $('textarea'), { switch_path: '/images/switch.png' });
+        $('textarea'), $('#import-button'), { switch_path: '/images/switch.png' });
 
     $('#editor').hide(); // Hide editor panel
     $('#editbox').hide();

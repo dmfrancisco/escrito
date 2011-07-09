@@ -101,7 +101,7 @@ window.log = function(){
  * jQuery iphoneSwitch plugin
  * by Daniel LaBare
 */
-jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_off_callback, editor, options) {
+jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_off_callback, editor, import_button, options) {
 
     var state = start_state == 'on' ? start_state : 'off';
 
@@ -121,17 +121,19 @@ jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_of
     }
 
     // click handling
-    var switchPanel = function() {
+    var switchPanel = function(additionalCallback) {
         if(state == 'on') {
             jQuery(document).find('.iphone_switch').animate({backgroundPosition: -40}, 300, function() {
                 jQuery(document).attr('src', settings.switch_off_container_path);
                 switched_off_callback();
+                if (typeof(additionalCallback) == "function") additionalCallback();
             });
             state = 'off';
         }
         else {
             jQuery(document).find('.iphone_switch').animate({backgroundPosition: 0}, 300, function() {
                 switched_on_callback();
+                if (typeof(additionalCallback) == "function") additionalCallback();
             });
             jQuery(document).find('.iphone_switch').attr('src', settings.switch_on_container_path);
             state = 'on';
@@ -142,6 +144,11 @@ jQuery.fn.iphoneSwitch = function(start_state, switched_on_callback, switched_of
     jQuery(this).click(switchPanel);
     jQuery(document).bind('keydown', 'Shift+tab',switchPanel);
     jQuery(editor).bind('keydown', 'Shift+tab', switchPanel);
+    jQuery(import_button).live('click', function(){
+        if (state == 'off') {
+            switchPanel(function() { $('#paper').html("<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, from your system, into this paper sheet.</p>"); }); // This should not be here of course, but this is not a serious project so don't worry
+        }
+    });
     // jQuery(document).bind('keydown', 'tab',switchPanel);
     // jQuery(editor).bind('keydown', 'tab', switchPanel);
 
