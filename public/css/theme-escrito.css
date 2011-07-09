@@ -29,7 +29,7 @@
 }
 
 .ace-solarized-light .ace_cursor {
-  border-left: 2px solid #000000;
+  border-left: 2px solid #666;
 }
 
 .ace-solarized-light .ace_cursor.ace_overwrite {

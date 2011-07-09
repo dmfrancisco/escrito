@@ -121,11 +121,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 
   #desk {
     margin: 0 auto 50px auto;
-    max-width: 1000px;
+    max-width: 1035px;
   }
 
   #paper {
-    padding: 30px 50px 50px 50px;
+    padding: 50px 72px 50px 72px;
     margin: 50px 55px;
     min-height:1500px;
 
@@ -144,13 +144,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 
 #paper {
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
-  font-size: 16px;
+  font-size: 13.3pt;
   word-spacing: .1em;
   color: #252519;
 }
 #paper p {
   text-align: justify;
-  line-height: 24px;
+  line-height: 26px;
   color: #222;
 }
 #paper p img {
@@ -240,7 +240,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
     margin-bottom: 6px;
 }
 #paper li {
-    line-height: 18px;
+    line-height: 24px;
     margin-bottom: 12px;
 }
 #paper ul.large li {
@@ -260,7 +260,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   bottom: 50px;
 
   margin: 0 auto 0 auto;
-  max-width: 888px;
+  max-width: 923px;
   overflow: hidden;
 
   background: #f8f8f7;
@@ -346,6 +346,7 @@ mark {
   }
   #paper {
     zoom: 85%;
+    font-size: 16px;
   }
   @page {
     counter-increment: page;

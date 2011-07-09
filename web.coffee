@@ -14,7 +14,7 @@ server = connect(
   connect.static(__dirname + '/public'),
   connect.router (app) ->
 
-    wiki = require './editor'
+    editor = require './editor'
     app.get '/doc/?', (req, res, next) ->
       uid = crypto.createHash('md5').update("" + (new Date()).getTime()).digest("hex").toString().substring(0, 9)
       res.writeHead 301, {location: "/doc/#{uid}"}
@@ -22,8 +22,7 @@ server = connect(
 
     app.get '/doc/:docName', (req, res, next) ->
       docName = req.params.docName
-      wiki docName, server.model, res, next
-
+      editor docName, server.model, res, next
 )
 
 if process.env.REDISTOGO_URL
