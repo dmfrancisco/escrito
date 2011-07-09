@@ -4,18 +4,13 @@ Mustache = require 'mustache'
 template = fs.readFileSync "#{__dirname}/document.html.mu", 'utf8'
 
 defaultContent = (name) -> """
-# This wiki page is currently empty.
+h1. This is a new public document.
 
-You can put some content in it with the editor on the right. As you do so, the document will update live on the left, and live for everyone else editing at the same time as you. Isn't that cool?
+Anyone who accesses this address will see what you're writing and can edit your document too.
 
-The text on the left is being rendered with markdown, so you can do all the usual markdown stuff like:
-
-- Bullet
-  - Points
-
-[links](http://google.com)
-
-[Go back to the main page](Main)
+* Start typing by clicking the button *write* or by pressing the @Shift@ and @Tab@ keys together.
+* Documents are not persistent for now, while this is still a beta version. If you close your browser and no one is editing or viewing your document, it will disappear.
+* The only browser this application works with is "Google Chrome":http://google.com/chrome/ for now.
 """
 
 
