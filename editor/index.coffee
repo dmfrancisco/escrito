@@ -10,7 +10,6 @@ Anyone who accesses this url can see and edit what you're writing.
 
 * Start writing by clicking the button *write* or by pressing the @Shift@ and @Tab@ keys together.
 * Documents are not persistent for now. If you close your browser and no one is editing or viewing this document, it will disappear.
-* Currently, this application only works in the "Google Chrome":(http://google.com/chrome/) browser.
 
 <div style="height:150px; border-bottom:1px dashed grey;"></div>
 

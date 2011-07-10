@@ -217,7 +217,7 @@ var escrito = function () {
     /* Parse written content and update the preview panel */
     function render(val) {
         // This only needs to be done when the user is in preview mode
-        if ($editbox.is(":visible")) {
+        if (!$preview.is(":visible")) {
             return;
         }
 
@@ -257,7 +257,7 @@ var escrito = function () {
     }
 
     function previewOn() {
-        $editbox.hide();
+        // $editbox.hide();
         $preview.show();
 
         render(editor.getSession().getValue());
@@ -465,17 +465,17 @@ var escrito = function () {
         // Iphone switch
         $('#switch').iphoneSwitch("on", previewOn, writeOn,
             $('textarea'), $('#import-button'), { switch_path: '/images/switch.png' });
-
-        $editbox.hide(); // Hide editor panel
     }
 
     function init() {
+        $preview = $('#preview');
+        $editbox = $('#editbox');
+        // $editbox.hide();
+
         dropdownMenus.init();
         whileLoading();
 
         editor = ace.edit("editor");
-        $preview = $('#preview');
-        $editbox = $('#editbox');
 
         editor.setReadOnly(true);
         editor.session.setUseWrapMode(true);

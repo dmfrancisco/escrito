@@ -108,6 +108,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
     right: 0;
     bottom: 0;
     overflow: auto;
+    background: #f1f1f1;
   }
 
   #toolbar-tip {
@@ -121,12 +122,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 
   #desk {
     margin: 0 auto 50px auto;
-    max-width: 1035px;
+    max-width: 975px;
   }
 
   #paper {
     padding: 50px 72px 50px 72px;
-    margin: 50px 55px;
+    margin: 50px 25px;
     min-height:1200px;
 
     background: #fff;
@@ -254,35 +255,25 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 
 #editbox {
   position: absolute;
-  left: 55px;
-  right: 65px;
-  top: 50px;
-  bottom: 50px;
+  left: 10px;
+  right: 0;
+  top: 0;
+  bottom: 0;
 
-  margin: 0 auto 0 auto;
-  max-width: 923px;
+  padding-bottom: 50px;
   overflow: hidden;
-
-  background: #f8f8f7;
-  -webkit-box-shadow: 1px 1px 1px #d8d8d8;
-  -moz-box-shadow: 1px 1px 1px #d8d8d8;
-  box-shadow: 1px 1px 1px #d8d8d8;
-  border: 1px solid #C6C9CB;
 }
 #editor {
-  position: absolute;
-  top: 10px;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
+  position: relative;
+  width: 100%;
+  height: 95%;
+  overflow: visible;
 
   font-family: 'Monaco','Lucida Console',monospace;
   font-size: 15px;
   line-height: 25px;
   color: #111;
-
-  overflow-x: hidden;
-  overflow-y: auto;
+  z-index: 0;
 }
 #editor p {
   margin: 0;
@@ -308,7 +299,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 }
 #editbox ::-webkit-scrollbar-track {
   /* Track */
-  background: #f8f8f7;
+  background: #f1f1f1;
 }
 #editbox ::-webkit-scrollbar-thumb {
   /* Handle */
@@ -317,7 +308,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   background: rgba(0,0,0,0.2);
 }
 #editbox ::-webkit-scrollbar-corner {
-  background: #f8f8f7;
+  background: #f1f1f1;
 }
 
 
@@ -347,6 +338,9 @@ mark {
   #paper {
     zoom: 85%;
     font-size: 16px;
+  }
+  #editbox {
+    display: none;
   }
   @page {
     counter-increment: page;

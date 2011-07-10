@@ -21,6 +21,17 @@
 }
 
 .ace-solarized-light .ace_scroller {
+  margin: 50px auto 0 auto;
+  max-width: 750px;
+  overflow: hidden;
+  position: static;
+}
+
+.ace-solarized-light .ace_sb {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .ace-solarized-light .ace_text-layer {
