@@ -127,7 +127,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   #paper {
     padding: 50px 72px 50px 72px;
     margin: 50px 55px;
-    min-height:1500px;
+    min-height:1200px;
 
     background: #fff;
     -webkit-box-shadow: 1px 1px 1px #d8d8d8;
