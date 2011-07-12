@@ -9,6 +9,17 @@ window.log = function(){
 (function(b){function c(){}for(var d="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();)b[a]=b[a]||c})(window.console=window.console||{});
 
 
+/* Function that doesn't seem to exist in IE, and Ace was complaining about */
+if (!String.prototype.trimRight) {
+    /* based on http://blog.stevenlevithan.com/archives/faster-trim-javascript */
+    var trimBeginRegexp = /^\s\s*/;
+    var trimEndRegexp = /\s\s*$/;
+    String.prototype.trimRight = function () {
+        return String(this).replace(trimBeginRegexp, '');
+    };
+}
+
+
 /* ace behaviour.js */
 
 /* vim:ts=4:sts=4:sw=4:
