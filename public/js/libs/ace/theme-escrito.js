@@ -5,5 +5,5 @@ define("ace/theme/escrito", ["require","exports","module"], function(require, ex
     // import CSS once
     dom.importCssString(cssText);
 
-    exports.cssClass = "ace-solarized-light";
+    exports.cssClass = "ace-escrito";
 });

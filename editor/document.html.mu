@@ -86,12 +86,6 @@
   <script src="/share/share.js"></script>
   <script src="/share/share-ace.js"></script>
 
-  <script src="/js/libs/ace/behaviour.js"></script>
-  <script src="/js/libs/ace/mode-text.js"></script>
-  <script src="/js/libs/ace/mode-textile.js"></script>
-  <script src="/js/libs/ace/mode-markdown.js"></script>
-  <script src="/js/libs/ace/theme-escrito.js"></script>
-
   <script src="/js/plugins.js"></script>
 
   <script type="text/javascript">
