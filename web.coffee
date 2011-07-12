@@ -15,14 +15,22 @@ server = connect(
   connect.router (app) ->
 
     editor = require './editor'
-    app.get '/doc/?', (req, res, next) ->
+    app.get '/?', (req, res, next) ->
       uid = crypto.createHash('md5').update("" + (new Date()).getTime()).digest("hex").toString().substring(0, 9)
-      res.writeHead 301, {location: "/doc/#{uid}"}
+      res.writeHead 301, {location: "/#{uid}"}
       res.end()
 
-    app.get '/doc/:docName', (req, res, next) ->
+    app.get '/:docName', (req, res, next) ->
       docName = req.params.docName
       editor docName, server.model, res, next
+
+    # The 404 route
+    # app.get '/*', (req, res, next) ->
+    #   fs.readFile './public/404.html', encoding = 'utf8', (err, data) ->
+    #     console.log(data)
+    #     res.writeHead 200, {'Content-Type': 'text/html'}
+    #     res.write data
+    #     res.end()
 )
 
 # if process.env.REDISTOGO_URL
