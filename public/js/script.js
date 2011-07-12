@@ -454,6 +454,8 @@ var escrito = function () {
     function init() {
         $preview = $('#preview');
         $editbox = $('#editbox');
+        $('#paper').activity({ segments: 12, align: 'left', valign: 'top', steps: 3,
+                               width: 2, space: 1, length: 3, color: '#030303', speed: 1.5});
 
         initTipsy();
         dropdownMenus.init();
@@ -532,6 +534,7 @@ var escrito = function () {
 
             render(doc.snapshot);
             $preview.focus();
+            $preview.activity(false);
             doc.on('change', function () {
                 render(doc.snapshot);
             });
