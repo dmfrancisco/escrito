@@ -327,20 +327,40 @@ var escrito = function () {
             e.stopPropagation();
             e.preventDefault();
 
-            var file = e.originalEvent.dataTransfer.files[0], reader = new FileReader();
-            reader.onload = function (event) {
-                var lang = languageByFilename(file.name);
-                if (lang === 'unknown') {
-                    return false;
-                } else {
-                    changeSelectedLanguage(lang);
-                }
-                editor.getSession().setValue(event.target.result);
-                render(event.target.result);
-            };
-            reader.readAsText(file);
+            renderImportedFile(e.originalEvent.dataTransfer.files[0]);
             return false;
         });
+    }
+
+    /* Upload a text file (with-out drag-and-drop) */
+    function uploadFileClientSide() {
+        if (typeof window.FileReader === 'undefined') {
+             alert('The File APIs are not fully supported in this browser.');
+        }
+        var $upload = $("input:file");
+
+        $upload.change(function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            renderImportedFile($upload.get(0).files[0]);
+            return false;
+        });
+    };
+
+    function renderImportedFile(file) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            var lang = languageByFilename(file.name);
+            if (lang === 'unknown') {
+                return false;
+            } else {
+                changeSelectedLanguage(lang);
+            }
+            editor.getSession().setValue(event.target.result);
+            render(event.target.result);
+        };
+        reader.readAsText(file);
     }
 
     /* Save written content */
@@ -449,7 +469,9 @@ var escrito = function () {
         // When clicking the import button
         $('#import-button').click(function (e) {
             $('#paper').html("<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, from your" +
-                             " system, into this paper sheet.</p>");
+                             " system, into this paper sheet.</p><p>Alternatively, you can also upload it here: <input type=file></p>");
+            $("input:file").uniform({fileDefaultText: 'No file chosen'});
+            uploadFileClientSide();
         });
 
         initLanguageMenu(); // Manage click events on the language menu
