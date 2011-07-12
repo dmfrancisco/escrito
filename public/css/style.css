@@ -14,7 +14,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   body {
     font-size: 12px;
     color: #111;
-    background: #F1F1F1;
+    background: #fff;
     font-family: helvetica, arial, sans-serif;
   }
   ::-moz-selection{ background: #4E8DED; color:#fff; text-shadow: none; }
@@ -303,7 +303,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 }
 #editbox ::-webkit-scrollbar-track {
   /* Track */
-  background: #f1f1f1;
+  background: #fff;
 }
 #editbox ::-webkit-scrollbar-thumb {
   /* Handle */
@@ -312,7 +312,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
   background: rgba(0,0,0,0.2);
 }
 #editbox ::-webkit-scrollbar-corner {
-  background: #f1f1f1;
+  background: #fff;
 }
 
 
