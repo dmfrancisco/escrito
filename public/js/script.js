@@ -105,8 +105,8 @@ jQuery.fn.iphoneSwitch = function (start_state, switched_on_callback, switched_o
         settings = { // Define default settings
             mouse_over: 'pointer',
             mouse_out:  'default',
-            switch_on_container_path: 'iphone_switch_container_on.png',
-            switch_off_container_path: 'iphone_switch_container_off.png',
+            // switch_on_container_path: 'iphone_switch_container_on.png',
+            // switch_off_container_path: 'iphone_switch_container_off.png',
             switch_path: 'iphone_switch.png',
             switch_height: 24,
             switch_width: 80
@@ -119,7 +119,7 @@ jQuery.fn.iphoneSwitch = function (start_state, switched_on_callback, switched_o
     var switchPanel = function (additionalCallback) {
         if (state === 'on') {
             $(document).find('.iphone_switch').animate({backgroundPosition: -40}, 300, function () {
-                jQuery(document).attr('src', settings.switch_off_container_path);
+                // $(document).attr('src', settings.switch_off_container_path);
                 switched_off_callback();
                 if (typeof (additionalCallback) === "function") {
                     additionalCallback();
@@ -133,7 +133,7 @@ jQuery.fn.iphoneSwitch = function (start_state, switched_on_callback, switched_o
                     additionalCallback();
                 }
             });
-            $(document).find('.iphone_switch').attr('src', settings.switch_on_container_path);
+            // $(document).find('.iphone_switch').attr('src', settings.switch_on_container_path);
             state = 'on';
         }
     };
@@ -464,7 +464,7 @@ var escrito = function () {
 
         // Iphone switch
         $('#switch').iphoneSwitch("on", previewOn, writeOn,
-            $('textarea'), $('#import-button'), { switch_path: '/images/switch.png' });
+            $('textarea'), $('#import-button'), { switch_path: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAYCAYAAAAxkDmIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEc0lEQVRoBdVaSy8sQRQ+M5rBio3YEBbikSB2FmJBIpF4/Aj+gF9w7/1JbGY2LFja4A4hglgi8Vh4jMfM7a/uPX2P1nqqqnsmNZV06vWdU+dRp7qqujOTk5M/BwYGcuRguru7K83Ozv7Y3d2l7u5uymQyTkhZqVTo9vaWxsfHaXNz81dnZ6eT9js9PS15HR0dNDU1RS8vL8p4ra2tn8poRF+4XeIZgxw4ruvQxGF2dnbo/v6eVldXaWRkhGBYJDiay37Nb/naLjGyHIWX/bIcheXxj46OKJ/Pk8v2u7m5Ia+vry9wKIRnx9mUbWjixoNsMODg4CBdXl6CvTPJX/Vof3+fcrlcIptJ/aGcrCctw35ZZywWI4hUNAZW167X19e6jmc7mFcul8VyZ8umNnQs2/Pzc20GSMC1VCopu7GMCVjVjBSyeTXjnhJjvGvf3t4Sc8O7ldP/9ze3mOfsYHPK+lKoCK7vkPqjcXQgt03ZbJY8z1MPyuD1/v6uniR805DNViddOsjYEA5GtDQ1NenqFeBA09bWRldXV7S1tUXHx8c0PDxMMzMz1NXVRVj6Pz4+ArxJgSM4ySQxGc8GqxxsQ1hPGiynENTUwYjW9vZ2Wl9fV85taWlRUVwsFung4ICmp6dpfn6eHh8fFX9TnSBTGku96bim+KzrM5AdbKpYc3OzitxCoaAmB5ZpOB3vYuTb29uEcyJwNokd7Lr9GuKYZHokgRNxPi3kCypq4cSMuhDxr0T+XZbAqXAycHIDputsU5l0+aaNa4hdtE2UwKm/i7+Dpb3i33ZVyn9vvNjJJycniSM4bYekza8hIpgdYqr86Oioer9iI8U7Z+SYMHiGhoZMWQZ4W5kCBnUqqHcwRwgrLseWfWiPwzCdCY3EclnyQZuNMXF2Xl5eJux2sZyijgcORh3P3Nyc9RkbMkE2fqrZhnWTeKknl5lPOGd6xnFd5lyWGLVEoyOqk4E8mA7GhiaOLwwJp5gk0MCx/f39tLCwoD4KYBcu37WLi4vU09OjNmI2E0jK5LL9Is/BcQZnQ1fDhPtBF24L18MY9EdhWIa4HNGKL1ErKyvkf3KkjY0NwhFpbGyMlpaWqLe3V+2igbNNWPqj5Au3hesYL9xWra5DE8aAZ0NssnCsMU1QDmdcRCe+Ja+trakNF5yC9uvra3p6evpiaN1xIJNN5OvyTwsXRHB4BmEANiz6UK6GsaGJ44vxeLm1UZidieXa/3kg0AHLK54ofXTHCd9kRfFywX7BOzhKMSm0LEtsuF3WZfk7Gh2MpDUtgz9vspg27cjT0UEHA/kkTpZZdlOM80s0FJKbI6moSTltp6Yhk4n8tli1RH83U2yZpkUHueAYV+Vj2VyVD3KZ717S8p4mHxjRxWhx1alhs6ol2sVfYlhQHGPOz8/VBokvKmBcOJ6dr2aqwU7bBM9YTDJsmvDRAtegFxcXwTWny/bz8Pvn2dkZ29OpHLvgiYkJ2tvbU2dWV4TDxILd/F+O6fDwkB4eHlwR7ZMckPEP561S77cf6FYAAAAASUVORK5CYII=' }); // switch_path: '/images/switch.png'
     }
 
     function init() {
