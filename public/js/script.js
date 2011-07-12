@@ -312,9 +312,10 @@ var escrito = function () {
     /* Text file drag-and-drop */
     function dropFile() {
         // Check for File API support
-        if (!window.File || !window.FileReader) {
-          alert('The File APIs are not fully supported in this browser.');
-        }
+        // if (typeof window.File === 'undefined' ||
+        //     typeof window.FileReader === 'undefined') {
+        //   alert('The File APIs are not fully supported in this browser.');
+        // }
 
         $("#preview").bind('dragover', function () {
             $("#paper").addClass('hover');
@@ -334,9 +335,9 @@ var escrito = function () {
 
     /* Upload a text file (with-out drag-and-drop) */
     function uploadFileClientSide() {
-        if (typeof window.FileReader === 'undefined') {
-             alert('The File APIs are not fully supported in this browser.');
-        }
+        // if (typeof window.FileReader === 'undefined') {
+        //      alert('The File APIs are not fully supported in this browser.');
+        // }
         var $upload = $("input:file");
 
         $upload.change(function (e) {
@@ -468,8 +469,22 @@ var escrito = function () {
 
         // When clicking the import button
         $('#import-button').click(function (e) {
-            $('#paper').html("<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, from your" +
-                             " system, into this paper sheet.</p><p>Alternatively, you can also upload it here: <input type=file></p>");
+            var importMessage = "";
+            if (typeof window.File === 'undefined' && typeof window.FileReader === 'undefined') { /* IE */
+                importMessage = "<p style='font-size:20px'>Currently, <strong>we don't support file uploads</strong> " +
+                                "to our servers.</p><p>Please, copy <em>&amp;</em> paste your file's content or try a "+
+                                "different browser, such as Chrome or Firefox.</p>";
+
+            } else if (typeof window.FileReader === 'undefined') { /* Opera? */
+                importMessage = "<p style='font-size:20px'><strong>Upload a file</strong>, " +
+                                "from your system: <input type=file></p>";
+            } else { /* Chrome & Firefox 4+ */
+                importMessage = "<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, " +
+                                "from your system, into this paper sheet.</p><p>Alternatively, you can also " +
+                                "upload it here: <input type=file></p>";
+            }
+
+            $('#paper').html(importMessage);
             $("input:file").uniform({fileDefaultText: 'No file chosen'});
             uploadFileClientSide();
         });
