@@ -47,7 +47,7 @@
 
         <div id="export-menu" class="menu right">
           <div>
-          <a href="#" class="opener opener-right">Export</a>
+          <a href="#" class="opener opener-right export-menu">Export</a>
           <ul class="popup">
             <li><a class="export" id="export-text" href="#">Text file</a></li>
             <li><a class="export" id="export-html" href="#">HTML file</a></li>
