@@ -1,4 +1,3 @@
-
 /* TEAM */
   Author: David Francisco
   Site: dmfranc.com
@@ -6,9 +5,32 @@
   Location: Coimbra, Portugal
 
 /* THANKS */
-  Name:
+  Joseph Gentle – Author of ShareJS (https://github.com/josephg/ShareJS/)
+  Ryan Dahl – Original author of Node.js (http://nodejs.org/)
+  John Fraser – Creator of Showdown (https://github.com/fivesixty/mdext/)
+  Ben Daglish – Creator of the JavaScript Textile parser (https://github.com/miebach/js-textile/)
+  (and many others)
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
+
+  Components:
+    NodeJS – Evented I/O for V8 JavaScript (http://nodejs.org/)
+    ShareJS – A collaborative editing engine (https://github.com/josephg/ShareJS/)
+    Ace Editor – Textarea enriched by Mozilla (https://github.com/ajaxorg/ace/)
+    Modernizr – Front-end development done right (http://modernizr.com/)
+    jQuery – The JavaScript library (http://jquery.com/)
+    CoffeeScript – Little language that compiles into JavaScript (http://jashkenas.github.com/coffee-script/)
+    Less – The dynamic stylesheet language (http://lesscss.org/)
+    Mustache – Logic-less templates (http://mustache.github.com/)
+    Foreman – Manage Procfile-based applications (http://ddollar.github.com/foreman/)
+    HTML5 ★ Boilerplate – A rock-solid default for HTML5 awesome (http://html5boilerplate.com/)
+    Showdown – Markdown parser (https://github.com/fivesixty/mdext/)
+    Textile parser – A JavaScript textile parser (https://github.com/miebach/js-textile/)
+    Google Caja – HTML Sanitizer (http://code.google.com/p/google-caja/)
+    Uniform – Sexy forms with jQuery (http://uniformjs.com/)
+    Markdown mode – Markdown support for the Ace editor (https://github.com/fivesixty/notepages/)
+    NETEYE Activity Indicator – Translucent spinner using SVG or VML (http://neteye.github.com/activity-indicator.html)
+
   Software:
+    Mac OS X 10.6.8

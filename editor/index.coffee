@@ -13,7 +13,7 @@ Anyone who accesses this url can see and edit what you're writing.
 
 <div style="height:150px; border-bottom:1px dashed grey;"></div>
 
-h3. This project wouldn't be possible without Open Source projects like:
+h3. This wouldn't be possible without Open Source projects like:
 
 * "NodeJS":http://nodejs.org/ - Evented I/O for V8 JavaScript
 * "ShareJS":https://github.com/josephg/ShareJS/ - The collaborative editing engine by Joseph Gentle
@@ -22,6 +22,13 @@ h3. This project wouldn't be possible without Open Source projects like:
 * "Showdown":https://github.com/fivesixty/mdext/ - Markdown parser made by John Fraser
 * "Textile parser":https://github.com/miebach/js-textile/ - Textile parser made by Ben Daglish
 * "Google Caja":http://code.google.com/p/google-caja/ - HTML Sanitizer
+Read more in our "humans.txt":http://escrito.herokuapp.com/humans.txt file.
+
+<div style="height:270px; border-bottom:1px dashed grey;"></div>
+
+<div style="align:left">
+"Fork this project":http://github.com/dmfrancisco/escrito/ _&_ "report issues":http://github.com/dmfrancisco/escrito/issues on github.
+</div>
 """
 
 
