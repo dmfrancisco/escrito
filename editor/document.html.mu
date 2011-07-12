@@ -78,21 +78,31 @@
     </div>
   </div>
 
+  <noscript>
+    <div class="blocking-warning">You should enable javascript to access this website.</div>
+  </noscript>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
-
-  <script src="/js/libs/ace/ace.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/share/share.js"></script>
-  <script src="/share/share-ace.js"></script>
-
-  <script src="/js/plugins.js"></script>
 
   <script type="text/javascript">
     var docName = '{{{docName}}}';
     var port = {{{port}}};
-  </script>
 
-  <script src="/js/script.js"></script>
+    if ($("html").is('.ie6, .ie7, .ie8')) {
+        $("body").html("<div class='blocking-warning'>We are sorry but this application does not work in your browser" +
+                       " for now. <br/>If possible, try to access this website using a different browser, such as <a" +
+                       " href='http://google.com/chrome/'>Google Chrome</a>, <a " +
+                       " href='http://mozilla.com/firefox/'>Mozilla Firefox 4+</a> or <a " +
+                       " href='http://beautyoftheweb.com/'>Internet Explorer 9+</a>.<br/></div>");
+    } else {
+        document.write("<script src='/js/libs/ace/ace.js'><\/script>");
+        document.write("<script src='/socket.io/socket.io.js'><\/script>");
+        document.write("<script src='/share/share.js'><\/script>");
+        document.write("<script src='/share/share-ace.js'><\/script>");
+        document.write("<script src='/js/plugins.js'><\/script>");
+        document.write("<script src='/js/script.js'><\/script>");
+    }
+  </script>
 </body>
 </html>

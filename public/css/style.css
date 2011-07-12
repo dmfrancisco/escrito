@@ -355,6 +355,28 @@ mark {
 }
 
 
+/* No javascript & other kind of blocking problems */
+
+.blocking-warning {
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  padding: 30px;
+  background: #FBFBE3;
+  line-height: 28px;
+}
+.blocking-warning a,
+.blocking-warning a:hover,
+.blocking-warning a:focus,
+.blocking-warning a:visited {
+  color: #000;
+}
+
+
 
 /* Scrollbars */
 
