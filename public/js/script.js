@@ -146,8 +146,7 @@ jQuery.fn.iphoneSwitch = function (start_state, switched_on_callback, switched_o
         if (state === 'off') {
             switchPanel(function () {
                 // This shouldn't be done here of course, but this is not a serious project so I'm not worried
-                $('#paper').html("<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, from " +
-                                 "your system, into this paper sheet.</p>");
+                escrito.addImportInstructions();
             });
         }
     });
@@ -365,6 +364,30 @@ var escrito = function () {
         reader.readAsText(file);
     }
 
+    /* Print some instructions on how to upload files in the paper sheet */
+    function addImportInstructions() {
+        var importMessage = "";
+
+        if (typeof window.File !== 'undefined' &&
+            typeof window.FileReader !== 'undefined' &&
+            Modernizr.draganddrop) { /* Chrome & Firefox 4+ */
+            importMessage = "<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, " +
+                            "from your system, into this paper sheet.</p><p>Alternatively, you can also " +
+                            "upload it here: <input type=file></p>";
+
+        } else if (typeof window.FileReader !== 'undefined') { /* Opera? */
+            importMessage = "<p style='font-size:20px'><strong>Upload a file</strong>, " +
+                            "from your system: <input type=file></p>";
+        } else { /* IE */
+            importMessage = "<p style='font-size:20px'>Currently, <strong>we don't support file uploads</strong> " +
+                            "to our servers.</p><p>Please, copy <em>&amp;</em> paste your file's content or try a "+
+                            "different browser, such as Chrome or Firefox.</p>";
+        }
+
+        $('#paper').html(importMessage);
+        $("input:file").uniform({fileDefaultText: 'No file chosen'});
+    }
+
     /* Save written content */
     function saveText() {
         var uriContent = "data:application/octet-stream," + encodeURIComponent(editor.getSession().getValue());
@@ -475,26 +498,7 @@ var escrito = function () {
 
         // When clicking the import button
         $('#import-button').click(function (e) {
-            var importMessage = "";
-
-            if (typeof window.File !== 'undefined' &&
-                typeof window.FileReader !== 'undefined' &&
-                Modernizr.draganddrop) { /* Chrome & Firefox 4+ */
-                importMessage = "<p style='font-size:20px'><strong>Drag <em>&amp;</em> drop a file</strong>, " +
-                                "from your system, into this paper sheet.</p><p>Alternatively, you can also " +
-                                "upload it here: <input type=file></p>";
-
-            } else if (typeof window.FileReader !== 'undefined') { /* Opera? */
-                importMessage = "<p style='font-size:20px'><strong>Upload a file</strong>, " +
-                                "from your system: <input type=file></p>";
-            } else { /* IE */
-                importMessage = "<p style='font-size:20px'>Currently, <strong>we don't support file uploads</strong> " +
-                                "to our servers.</p><p>Please, copy <em>&amp;</em> paste your file's content or try a "+
-                                "different browser, such as Chrome or Firefox.</p>";
-            }
-
-            $('#paper').html(importMessage);
-            $("input:file").uniform({fileDefaultText: 'No file chosen'});
+            addImportInstructions();
             uploadFileClientSide();
         });
 
@@ -542,7 +546,7 @@ var escrito = function () {
         });
     }
 
-    return { init : init };
+    return { init : init, addImportInstructions: addImportInstructions };
 }();
 
 $(document).ready(function () {
