@@ -1,12 +1,5 @@
 #!/usr/bin/env node
 
-# Run "npm install", "cake build" and "node web.js"
-connect = require('connect')
-sharejs = require('share').server
-sys     = require('sys')
-crypto  = require('crypto')
-
-
 # Processing the command line parameters
 opt = require('optimist')
   .usage('Collaborative writing with Markdown & Textile.\nUsage: $0 [-p port -d database]')
@@ -27,32 +20,48 @@ if opt.argv.h
   process.exit()
 
 
-server = connect(
-  connect.favicon(__dirname + '/public/favicon.ico'),
-  connect.logger(),
-  connect.static(__dirname + '/public'),
-  connect.router (app) ->
+runServer = (argv, sharejs, connect, sys, crypto) ->
+  server = connect(
+    connect.favicon(__dirname + '/public/favicon.ico'),
+    connect.logger(),
+    connect.static(__dirname + '/public'),
+    connect.router (app) ->
 
-    editor = require './editor'
-    app.get '/?', (req, res, next) ->
-      uid = crypto.createHash('md5').update("" + (new Date()).getTime()).digest("hex").toString().substring(0, 9)
-      res.writeHead 301, {location: "/#{uid}"}
-      res.end()
+      editor = require './editor'
+      app.get '/?', (req, res, next) ->
+        uid = crypto.createHash('md5').update("" + (new Date()).getTime()).digest("hex").toString().substring(0, 9)
+        res.writeHead 301, {location: "/#{uid}"}
+        res.end()
 
-    app.get '/:docName', (req, res, next) ->
-      docName = req.params.docName
-      editor opt.argv.p, docName, server.model, res, next
-)
+      app.get '/:docName', (req, res, next) ->
+        docName = req.params.docName
+        editor argv.p, docName, server.model, res, next
+  )
+
+  # # If you're hosting this on Heroku and you're using RedisToGo
+  # if process.env.REDISTOGO_URL
+  #   rtg = require("url").parse(process.env.REDISTOGO_URL)
+  #   # ShareJS has a bug and the params are swapped
+  #   options = { db: { type: 'redis', hostname: rtg.port, port: rtg.hostname } }
+
+  options = { db: { type: argv.d } }
+  sharejs.attach server, options
+  server.listen(argv.p)
+
+  sys.puts "Escrito is running at http://localhost:#{argv.p}/"
 
 
-# # If you're hosting this on Heroku and you're using RedisToGo
-# if process.env.REDISTOGO_URL
-#   rtg = require("url").parse(process.env.REDISTOGO_URL)
-#   # ShareJS has a bug and the params are swapped
-#   options = { db: { type: 'redis', hostname: rtg.port, port: rtg.hostname } }
+connect = require('connect')
+sys     = require('sys')
+crypto  = require('crypto')
 
-options = { db: { type: opt.argv.d } }
-sharejs.attach server, options
-server.listen(opt.argv.p)
-
-sys.puts "Escrito is running at http://localhost:#{opt.argv.p}/"
+try
+  sharejs = require('share').server
+  runServer(opt.argv)
+catch error
+  # Build ShareJS (this is not currently done automatically by ShareJS)
+  exec = require('child_process').exec
+  exec "cd #{__dirname} && cake build-dependencies", (err, stdout, stderr) ->
+    throw err if err
+    sharejs = require('share').server
+    runServer(opt.argv, sharejs, connect, sys, crypto)

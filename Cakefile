@@ -2,7 +2,7 @@
 
 {exec} = require 'child_process'
 
-task 'build-dependencies', 'Compile all coffee files from ShareJS', (options) ->
+task 'build-dependencies', 'Build all coffee files from ShareJS', (options) ->
   exec "coffee --compile --bare --output node_modules/share/lib/ node_modules/share/src/", (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr || 'build-dependencies done.'

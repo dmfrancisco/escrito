@@ -1,12 +1,44 @@
 {
   "name": "escrito",
-  "version": "0.0.1",
+  "version": "0.2.1",
+  "description": "Collaborative writing with Markdown & Textile",
+  "keywords": ["editor", "collaboration", "document", "markup", "markdown", "textile", "concurrent"],
+  "author": "David Francisco <hello@dmfranc.com> (http://dmfranc.com/)",
+  "homepage": "http://escrito.herokuapp.com/",
+
+  "main": "web.js",
+  "preferGlobal": true,
+  "bin": {
+    "escrito": "web.js"
+  },
+  "scripts": { "start": "node web.js" },
+  "config" : {
+    "port" : "3000",
+    "database" : "memory"
+  },
   "dependencies": {
-    "share": ">= 0.2.1",
-    "connect": "~1.1.1",
-    "coffee-script": "~1.0.0",
-    "redis": "*",
     "websocket-client": ">= 1.0.0",
-    "mustache": "*"
-  }
+    "coffee-script": ">= 1.0.0",
+		"optimist": ">= 0.2.4",
+    "connect": ">= 1.1.1",
+    "share": "~0.2.1",
+    "mustache": "*",
+    "redis": "*"
+  },
+  "devDependencies": {
+    "zombie": ">= 0.9.5"
+  },
+  "engines": {
+    "node": ">= 0.4.10-pre",
+    "npm": "1.0.15"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://github.com/dmfrancisco/escrito/raw/master/LICENSE"
+  }],
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/dmfrancisco/escrito.git"
+  },
+  "bugs": { "url": "http://github.com/dmfrancisco/escrito/issues" }
 }
