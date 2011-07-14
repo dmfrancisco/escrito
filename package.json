@@ -4,9 +4,9 @@
   "description": "Collaborative writing with Markdown & Textile",
   "keywords": ["editor", "collaboration", "document", "markup", "markdown", "textile", "concurrent"],
   "author": "David Francisco <hello@dmfranc.com> (http://dmfranc.com/)",
-  "homepage": "http://escrito.herokuapp.com/",
+  "homepage": "http://github.com/dmfrancisco/escrito/",
 
-  "main": "web.js",
+  "main": "web.coffee",
   "preferGlobal": true,
   "bin": {
     "escrito": "web.coffee"
