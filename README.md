@@ -1,6 +1,6 @@
 ![escrito logo](http://dmfranc.com/assets/escrito.png)
 
-## Check the demo at
+## Demonstration
 [http://escrito.herokuapp.com/](http://escrito.herokuapp.com/)
 
 
@@ -29,6 +29,7 @@ You can pass custom arguments:
     escrito --port 4567
 
 Documents are not persistent by default but you can set a custom database type.
+
 The available options are 'memory' and 'redis'. Those are the database types supported by the [ShareJS](https://github.com/josephg/ShareJS/) project.
 
     escrito --database redis
@@ -38,7 +39,7 @@ For more detailed help type:
     escrito -h
 
 
-## Install it locally
+## Local installation
 
 You can also install escrito locally. This will install it in your current directory.
 
@@ -49,6 +50,7 @@ Start the server:
     npm start escrito
 
 To pass custom arguments using npm, you have to use a slightly different syntax.
+
 For example, to set up the server with a custom port you should do the following:
 
     npm config set escrito:port 5000
@@ -64,11 +66,6 @@ Install all the dependencies.
 
     cd escrito
     npm install
-
-Build them.
-
-    cake build-dependencies
-    cake build
 
 Run the server:
 
