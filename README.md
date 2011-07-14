@@ -4,7 +4,7 @@
 [http://escrito.herokuapp.com/](http://escrito.herokuapp.com/)
 
 
-## Installation
+## Installation and Usage
 
 First make sure you have a working copy of [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/) (the node package manager).
 
@@ -100,4 +100,4 @@ Run the server:
 * [Textile parser](https://github.com/miebach/js-textile/) - Textile parser made by Ben Daglish
 * [Google Caja](http://code.google.com/p/google-caja/) - HTML Sanitizer
 
-Check them all in the [humans.txt](http://escrito.herokuapp.com/humans.txt) file.
+Check them all in the [humans.txt](https://github.com/dmfrancisco/escrito/blob/master/public/humans.txt) file.
