@@ -1,1 +1,1 @@
-web: cake build && node web.js
+web: cake build-dependencies && cake build && node web.js

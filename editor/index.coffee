@@ -37,10 +37,9 @@ render = (content, name, docName, res, port) ->
   res.writeHead 200, {'content-type': 'text/html'}
   res.end html
 
-module.exports = (docName, model, res) ->
+module.exports = (port, docName, model, res) ->
   name = docName
   docName = "doc:" + docName
-  port = process.env.PORT || 3000
 
   model.getSnapshot docName, (data) ->
     if data == null
