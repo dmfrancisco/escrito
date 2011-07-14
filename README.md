@@ -1,6 +1,6 @@
 ![escrito logo](http://dmfranc.com/assets/escrito.png)
 
-## Demonstration
+## Live preview
 [http://escrito.herokuapp.com/](http://escrito.herokuapp.com/)
 
 

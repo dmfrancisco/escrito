@@ -67,7 +67,7 @@ try
   sharejs = requireModule('share').server
   runServer(opt.argv)
 catch error
-  # Build ShareJS (this is not currently done automatically by ShareJS)
+  # Build ShareJS (currently, this is not done automatically by ShareJS)
   exec = require('child_process').exec
   exec "cd #{__dirname} && cake build-dependencies", (err, stdout, stderr) ->
     throw err if err
