@@ -6,7 +6,9 @@
 
 ## Installation
 
-If you want to install escrito, you'll need coffee.
+First make sure you have a working copy of [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/) (the node package manager).
+
+To install escrito you'll need coffee.
 
     npm install -g coffee-script
 
