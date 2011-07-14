@@ -1,4 +1,12 @@
-#!/usr/bin/env node
+#!/usr/bin/env coffee
+
+# Try also to require locally (this is a known coffeescript bug - http://github.com/jashkenas/coffee-script/issues/1035)
+requireModule = (filename) ->
+  try
+    require(filename)
+  catch error
+    require("#{__dirname}/node_modules/#{filename}")
+
 
 # Processing the command line parameters
 opt = require('optimist')
@@ -51,17 +59,17 @@ runServer = (argv, sharejs, connect, sys, crypto) ->
   sys.puts "Escrito is running at http://localhost:#{argv.p}/"
 
 
-connect = require('connect')
+connect = requireModule('connect')
+crypto  = requireModule('crypto')
 sys     = require('sys')
-crypto  = require('crypto')
 
 try
-  sharejs = require('share').server
+  sharejs = requireModule('share').server
   runServer(opt.argv)
 catch error
   # Build ShareJS (this is not currently done automatically by ShareJS)
   exec = require('child_process').exec
   exec "cd #{__dirname} && cake build-dependencies", (err, stdout, stderr) ->
     throw err if err
-    sharejs = require('share').server
+    sharejs = requireModule('share').server
     runServer(opt.argv, sharejs, connect, sys, crypto)

@@ -9,9 +9,9 @@
   "main": "web.js",
   "preferGlobal": true,
   "bin": {
-    "escrito": "web.js"
+    "escrito": "web.coffee"
   },
-  "scripts": { "start": "node web.js" },
+  "scripts": { "start": "coffee web.coffee" },
   "config" : {
     "port" : "3000",
     "database" : "memory"
