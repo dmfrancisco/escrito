@@ -12,7 +12,7 @@ If you want to install escrito, you'll need coffee.
 Check if everything went okay.
     coffee -v
 
-Next, run:
+Next, run (this may take a while):
     npm install -g escrito
 
 Then start the server.
