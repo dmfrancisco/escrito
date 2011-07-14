@@ -9,7 +9,7 @@ requireModule = (filename) ->
 
 
 # Processing the command line parameters
-opt = require('optimist')
+opt = requireModule('optimist')
   .usage('Collaborative writing with Markdown & Textile.\nUsage: $0 [-p port -d database]')
   .options('p', {
       alias: 'port',
