@@ -7,6 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="google-site-verification" content="wMv9HVSI5njXpF7bjNLja2WmWpWCkhTcMPb_zFeQ44k" />
 
   <title>Escrito - Collaborative writing with Markdown &amp; Textile</title>
   <meta name="description" content="Escrito - Collaborative writing with Markdown &amp; Textile">
