@@ -525,25 +525,41 @@ var escrito = function () {
         if (window.location.hostname !== "localhost") {  // FIXME
             port = "80";
         }
-        var connection = new sharejs.Connection(window.location.hostname, port);
+        var connected = false;
+        var connection;
 
-        connection.open(docName, function (doc, error) {
-            if (error) {
-                console.error(error);
-                return;
-            }
-            doc.attach_ace(editor);
-            editor.setReadOnly(false);
+        function openConnection() {
+            connection = new sharejs.Connection(window.location.hostname, port);
+            connection.open(docName, function (doc, error) {
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+                connected = true;
+                doc.attach_ace(editor);
+                editor.setReadOnly(false);
 
-            window.doc = doc;
+                window.doc = doc;
 
-            render(doc.snapshot);
-            $preview.focus();
-            $preview.activity(false);
-            doc.on('change', function () {
                 render(doc.snapshot);
+                $preview.focus();
+                $preview.activity(false);
+                doc.on('change', function () {
+                    render(doc.snapshot);
+                });
             });
-        });
+        }
+
+        openConnection();
+        setTimeout(function () { responseTimeout(); }, 8000);
+        function responseTimeout() {
+            // If it's taking too long, try again (this happens a lot because heroku doesn't support websockets)
+            if (!connected) {
+                console.log("Trying to connect one more time");
+                openConnection();
+                setTimeout(function () { responseTimeout(); }, 8000);
+            }
+        }
     }
 
     return { init : init, addImportInstructions: addImportInstructions };
