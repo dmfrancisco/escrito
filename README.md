@@ -3,6 +3,8 @@
 ## Live preview
 [http://escrito.herokuapp.com/](http://escrito.herokuapp.com/)
 
+Also available at the [Chrome Web Store](https://chrome.google.com/webstore/detail/gjdfjkicccgkhmifgkilkpbbbadejddb).
+
 
 ## Installation and Usage
 
