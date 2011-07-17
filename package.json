@@ -21,7 +21,7 @@
     "coffee-script": ">= 1.0.0",
     "optimist": ">= 0.2.4",
     "connect": ">= 1.1.1",
-    "share": "~0.2.1",
+    "share": ">= 0.2.2",
     "mustache": "*",
     "redis": "*"
   },

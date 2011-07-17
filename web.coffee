@@ -49,8 +49,7 @@ runServer = (argv, sharejs, connect, sys, crypto) ->
   # # If you're hosting this on Heroku and you're using RedisToGo
   # if process.env.REDISTOGO_URL
   #   rtg = require("url").parse(process.env.REDISTOGO_URL)
-  #   # ShareJS has a bug and the params are swapped
-  #   options = { db: { type: 'redis', hostname: rtg.port, port: rtg.hostname } }
+  #   options = { db: { type: 'redis', hostname: rtg.hostname, port: rtg.port } }
 
   options = { db: { type: argv.d } }
   sharejs.attach server, options
