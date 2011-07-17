@@ -404,8 +404,8 @@ var escrito = function () {
             "    pre, tt, code { font: 12px Menlo, Monaco, Consolas, 'Lucida Console', monospace; }",
             "  </style>"
         ], uriContent = "data:application/octet-stream," +
-            encodeURIComponent("<html>\n<head>\n"+ attrs.join("\n") +"\n<head>\n<body>\n"+ $('#paper').html() +
-                               "\n</body>\n</html>\n");
+            encodeURIComponent("<html>\n<head>\n  <meta charset=\"UTF-8\">\n"+ attrs.join("\n") +"\n<head>\n" +
+                               "<body>\n"+ $('#paper').html() + "\n</body>\n</html>\n");
         document.location.href = uriContent;
     }
 
