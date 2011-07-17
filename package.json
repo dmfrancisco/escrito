@@ -1,6 +1,6 @@
 {
   "name": "escrito",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Collaborative writing with Markdown & Textile",
   "keywords": ["editor", "collaboration", "document", "markup", "markdown", "textile", "concurrent"],
   "author": "David Francisco <hello@dmfranc.com> (http://dmfranc.com/)",
