@@ -1,6 +1,6 @@
 {
   "name": "escrito",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Collaborative writing with Markdown & Textile",
   "keywords": ["editor", "collaboration", "document", "markup", "markdown", "textile", "concurrent"],
   "author": "David Francisco <hello@dmfranc.com> (http://dmfranc.com/)",
@@ -27,7 +27,7 @@
   },
   "engines": {
     "node": ">= 0.4.10-pre",
-    "npm": "1.0.15"
+    "npm": ">= 1.0.15"
   },
   "licenses": [{
     "type": "MIT",
