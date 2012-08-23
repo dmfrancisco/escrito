@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/dmfrancisco/escrito.png)](http://travis-ci.org/dmfrancisco/escrito)
 ![escrito logo](http://dmfranc.com/assets/escrito.png)
 
 ## Live preview
