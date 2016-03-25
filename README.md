@@ -1,3 +1,5 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 ![escrito logo](http://dmfranc.com/assets/escrito.png)
 
 ## Live preview
